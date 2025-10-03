@@ -104,6 +104,39 @@
             </div>
         </div>
     </footer>
+
+    <!-- Tombol Pesan Mengambang -->
+    <div id="floating-message-button" class="floating-message-button" aria-label="Kirim Pesan">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </div>
+
+    <!-- Modal Pesan -->
+    <div id="message-modal" class="message-modal">
+        <div class="message-modal-content">
+            <span id="message-modal-close" class="message-modal-close">&times;</span>
+            <h2>Kirim Pesan</h2>
+            <form id="message-form" class="message-form">
+                <div class="form-group">
+                    <label for="sender-name">Nama Anda</label>
+                    <input type="text" id="sender-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="sender-email">Email Anda</label>
+                    <input type="email" id="sender-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="sender-message">Pesan</label>
+                    <textarea id="sender-message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="button button-primary">Kirim</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notifikasi Popup -->
+    <div id="notification-popup" class="notification-popup">Pesan Anda telah terkirim!</div>
+
+    <script src="script.js"></script>
 </body>
 </html>
 

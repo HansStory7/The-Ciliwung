@@ -271,8 +271,11 @@ body {
 }
 
 /* Warna Latar Baru */
-#camping {
+#tiket {
     background-color: #F8F6F2;
+}
+#camping {
+    background-color: #FDFBF5; /* Mengembalikan warna asli */
 }
 #resto {
     background-color: #F1F3F0;
@@ -359,6 +362,62 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     align-self: center;
 }
 
+/* === BAGIAN TIKET WISATA === */
+.tiket-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+    align-items: stretch; /* Membuat semua item dalam satu baris memiliki tinggi yang sama */
+}
+
+.tiket-card {
+    background-color: var(--color-white);
+    border-radius: .5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column; /* Mengubah arah flex menjadi kolom */
+    align-items: center;   /* Pusatkan item secara horizontal */
+    text-align: center;    /* Pusatkan teks */
+    gap: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tiket-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.tiket-card-icon {
+    flex-shrink: 0;
+    color: var(--color-tea-green);
+    margin-bottom: 0.5rem; /* Menambah jarak bawah ikon */
+}
+.tiket-card-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.tiket-card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Membuat konten mengisi ruang yang tersedia */
+    width: 100%;
+}
+
+.tiket-card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem; /* Menyesuaikan jarak bawah judul */
+}
+
+.tiket-card-price {
+    font-size: 1rem;
+    color: var(--color-brown);
+    line-height: 1.4;
+    margin-top: auto; /* Mendorong harga ke bagian bawah kartu */
+}
+
 
 /* === BAGIAN GALERI === */
 .galeri-grid {
@@ -386,20 +445,73 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 /* === BAGIAN VIDEO === */
 .video-container {
     position: relative;
-    width: 100%; /* Lebar penuh sesuai container */
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    width: 100%;
+    margin-top: 2rem; /* Menambahkan margin atas */
+    aspect-ratio: 16 / 9; /* Memastikan rasio 16:9 */
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15), 0 5px 10px rgba(0,0,0,0.1);
 }
-.video-container video {
+.video-container iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Memastikan cover/poster mengisi area */
+    z-index: 1;
 }
+.video-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: opacity 0.4s ease, visibility 0.4s;
+    z-index: 10;
+}
+.video-cover.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.video-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.video-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: pulse 2s infinite;
+}
+.video-play-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%) scale(1.1);
+    animation-play-state: paused;
+}
+.video-play-button svg {
+    width: 50%;
+    height: 50%;
+    fill: var(--color-white);
+    transform: translateX(2.5px);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
 
 
 /* === FOOTER === */
@@ -743,6 +855,17 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
         box-shadow: 0 5px 15px rgba(72, 52, 52, 0.1);
     }
 }
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
 .hero-content p { transition-delay: 0.2s; }
 .hero-content .button { transition-delay: 0.4s; }
 #tentang p { transition-delay: 0.2s; }
@@ -750,6 +873,113 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 .kamar-card:nth-child(3) { transition-delay: 0.4s; }
 .kamar-card:nth-child(4) { transition-delay: 0.6s; }
 .kamar-card:nth-child(5) { transition-delay: 0.8s; }
+
+/* === FLOATING MESSAGE BUTTON & MODAL === */
+.floating-message-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--color-tea-green);
+    color: var(--color-white);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 90;
+    transition: transform 0.3s ease;
+}
+.floating-message-button:hover {
+    transform: scale(1.1);
+}
+.message-modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.message-modal.active {
+    display: flex;
+    opacity: 1;
+}
+.message-modal-content {
+    background-color: var(--color-cream);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+.message-modal.active .message-modal-content {
+    transform: scale(1);
+}
+.message-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-brown);
+    cursor: pointer;
+}
+.message-form .form-group {
+    margin-bottom: 1rem;
+}
+.message-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+.message-form input, .message-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-brown-light);
+    border-radius: 0.25rem;
+    background-color: var(--color-white);
+    font-family: var(--font-sans);
+}
+.message-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+.message-form button {
+    width: 100%;
+    border: none;
+}
+.notification-popup {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: var(--color-tea-green);
+    color: var(--color-white);
+    text-align: center;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    position: fixed;
+    z-index: 101;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+.notification-popup.show {
+    visibility: visible;
+    opacity: 1;
+}
 
 
 

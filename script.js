@@ -172,26 +172,56 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Logika untuk Kontrol Video ---
-    const video = document.getElementById('main-video');
+    // --- Logika untuk Tombol Pesan Mengambang ---
+    const floatingButton = document.getElementById('floating-message-button');
+    const messageModal = document.getElementById('message-modal');
+    const messageModalClose = document.getElementById('message-modal-close');
+    const messageForm = document.getElementById('message-form');
+    const notificationPopup = document.getElementById('notification-popup');
 
-    if (video) {
-        document.addEventListener('keydown', (e) => {
-            const videoContainer = video.closest('.video-container');
-            if (!videoContainer) return;
+    if (floatingButton && messageModal && messageModalClose) {
+        floatingButton.addEventListener('click', () => {
+            messageModal.classList.add('active');
+        });
 
-            const videoRect = videoContainer.getBoundingClientRect();
-            const isVideoInView = videoRect.top < window.innerHeight && videoRect.bottom >= 0;
+        const closeMessageModal = () => {
+            messageModal.classList.remove('active');
+        };
 
-            if (isVideoInView && document.activeElement !== 'input' && document.activeElement !== 'textarea') {
-                if (e.key === 'ArrowRight') {
-                    e.preventDefault();
-                    video.currentTime += 5;
-                } else if (e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    video.currentTime -= 5;
-                }
+        messageModalClose.addEventListener('click', closeMessageModal);
+        messageModal.addEventListener('click', (e) => {
+            if (e.target === messageModal) {
+                closeMessageModal();
             }
+        });
+
+        messageForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Di sini Anda bisa menambahkan logika pengiriman data form (misal via AJAX)
+            console.log('Formulir terkirim!');
+            messageForm.reset();
+            closeMessageModal();
+            
+            // Tampilkan notifikasi
+            notificationPopup.classList.add('show');
+            setTimeout(() => {
+                notificationPopup.classList.remove('show');
+            }, 3000); // Sembunyikan setelah 3 detik
+        });
+    }
+
+    // --- Logika untuk Video Player YouTube ---
+    const playButton = document.getElementById('play-button');
+    const videoCover = document.getElementById('video-cover');
+    const playerFrame = document.getElementById('youtube-player');
+
+    if (playButton && videoCover && playerFrame) {
+        playButton.addEventListener('click', () => {
+            videoCover.classList.add('hidden');
+            playerFrame.contentWindow.postMessage(
+                JSON.stringify({ event: 'command', func: 'playVideo', args: '' }),
+                '*'
+            );
         });
     }
 
