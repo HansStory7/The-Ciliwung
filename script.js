@@ -3,9 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Logika untuk Menu Mobile ---
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+
+    if (mobileMenuButton && mobileMenu && mobileMenuClose) {
+        const openMobileMenu = () => mobileMenu.classList.add('active');
+        const closeMobileMenu = () => mobileMenu.classList.remove('active');
+
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        
+        // Tutup menu jika link di dalamnya diklik
+        mobileMenuLinks.forEach(link => {
+            // Cek jika link bukan tombol booking sebelum menambahkan event listener
+            if (!link.classList.contains('booking-button')) {
+                link.addEventListener('click', closeMobileMenu);
+            }
         });
     }
 
@@ -121,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalContent = {
         panduan: {
             title: 'Panduan Pengunjung',
-            body: `<p>Selamat datang di Thè Ciliwung! Untuk memastikan pengalaman Anda menyenangkan, harap perhatikan panduan berikut:</p>
+            body: `<p>Selamat datang di Thé Ciliwung! Untuk memastikan pengalaman Anda menyenangkan, harap perhatikan panduan berikut:</p>
                    <ul>
                        <li>Check-in dimulai pukul 14:00 dan check-out paling lambat pukul 12:00.</li>
                        <li>Dilarang membawa makanan dan minuman dari luar ke area resto.</li>
@@ -203,12 +216,87 @@ document.addEventListener('DOMContentLoaded', () => {
             closeMessageModal();
             
             // Tampilkan notifikasi
+            notificationPopup.textContent = 'Pesan Anda telah terkirim!';
             notificationPopup.classList.add('show');
             setTimeout(() => {
                 notificationPopup.classList.remove('show');
             }, 3000); // Sembunyikan setelah 3 detik
         });
     }
+
+    // --- Logika untuk Modal Booking ---
+    const bookingModal = document.getElementById('booking-modal');
+    const bookingModalClose = document.getElementById('booking-modal-close');
+    const bookingButtons = document.querySelectorAll('.booking-button');
+    const bookingForm = document.getElementById('booking-form');
+    const bookingTypeSelect = document.getElementById('booking-type');
+    const backendUrl = 'https://hansstory7.pythonanywhere.com/booking'; // URL Backend Anda
+
+    if (bookingModal && bookingModalClose && bookingButtons.length > 0) {
+        
+        const openBookingModal = (bookingType = '') => {
+            if (bookingType) {
+                bookingTypeSelect.value = bookingType;
+            }
+            bookingModal.classList.add('active');
+        };
+
+        const closeBookingModal = () => {
+            bookingModal.classList.remove('active');
+            bookingForm.reset();
+        };
+
+        bookingButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const bookingType = button.getAttribute('data-type');
+                openBookingModal(bookingType);
+            });
+        });
+
+        bookingModalClose.addEventListener('click', closeBookingModal);
+
+        bookingModal.addEventListener('click', (e) => {
+            if (e.target === bookingModal) {
+                closeBookingModal();
+            }
+        });
+
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(bookingForm);
+            const data = Object.fromEntries(formData.entries());
+
+            fetch(backendUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(result => {
+                console.log('Success:', result);
+                closeBookingModal();
+                notificationPopup.textContent = 'Permintaan booking Anda telah terkirim! Admin akan segera menghubungi Anda.';
+                notificationPopup.classList.add('show');
+                setTimeout(() => {
+                    notificationPopup.classList.remove('show');
+                    notificationPopup.textContent = 'Pesan Anda telah terkirim!';
+                }, 5000);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan saat mengirim permintaan. Silakan coba lagi.');
+            });
+        });
+    }
+
 
     // --- Logika untuk Video Player YouTube ---
     const playButton = document.getElementById('play-button');

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Menambahkan favicon -->
     <link rel="icon" href="logo-theciliwung.png" type="image/png">
-    <title>Thè Ciliwung | Penginapan Estetik di Alam</title>
+    <title>Thé Ciliwung | Penginapan Estetik di Alam</title>
     <link rel="stylesheet" href="style.css">
     
     <!-- Link untuk font kustom -->
@@ -19,7 +19,7 @@
     <header class="header">
         <div class="container header-container">
             <a href="#" class="logo">
-                <img src="logo-theciliwung.png" alt="Logo Thè Ciliwung" class="logo-img">
+                <img src="logo-theciliwung.png" alt="Logo Thé Ciliwung" class="logo-img">
             </a>
             <nav class="main-nav">
                 <a href="#tentang">Tentang Kami</a>
@@ -30,25 +30,28 @@
                 <a href="#galeri">Galeri</a>
                 <a href="#kontak">Kontak</a>
             </nav>
-            <a href="#kontak" class="button button-primary nav-button">Pesan Sekarang</a>
+            <a href="#" class="button button-primary nav-button booking-button">Pesan Sekarang</a>
             <button id="mobile-menu-button" class="mobile-menu-button">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu">
-            <a href="#tentang">Tentang Kami</a>
-            <a href="#tiket">Tiket Wisata</a>
-            <a href="#camping">Camping</a>
-            <a href="#glamping">Glamping</a>
-            <a href="#resto">Resto</a>
-            <a href="#galeri">Galeri</a>
-            <a href="#kontak">Kontak</a>
-            <a href="#kontak" class="button button-primary">Pesan Sekarang</a>
-        </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+    <div id="mobile-menu" class="mobile-menu">
+        <button id="mobile-menu-close" class="mobile-menu-close">&times;</button>
+        <img src="logo-theciliwung.png" alt="Logo Thé Ciliwung" class="mobile-menu-logo">
+        <a href="#tentang">Tentang Kami</a>
+        <a href="#tiket">Tiket Wisata</a>
+        <a href="#camping">Camping</a>
+        <a href="#glamping">Glamping</a>
+        <a href="#resto">Resto</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#kontak">Kontak</a>
+    </div>
 
     <main>
         <!-- Hero Section -->
@@ -62,7 +65,7 @@
             </div>
             <div class="hero-overlay"></div>
             <div class="hero-content animate-on-scroll">
-                <h1>Thè Ciliwung Tea Estate</h1>
+                <h1>Thé Ciliwung Tea Estate</h1>
                 <p class="hero-subtitle">est. 1907</p>
                 <p>Penginapan eksklusif yang memadukan kemewahan minimalis dengan keasrian alam yang menenangkan.</p>
                 <a href="#camping" class="button button-primary button-lg button-float">Lihat Pilihan Penginapan</a>
@@ -77,9 +80,9 @@
             <svg class="decorative-leaf leaf-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50,0 C25,25 25,75 50,100 C75,75 75,25 50,0 Z M50,10 C65,30 65,70 50,90 C35,70 35,30 50,10 Z"/></svg>
             
             <div class="container section-center">
-                <h2 class="section-title animate-on-scroll">Selamat Datang di Thè Ciliwung</h2>
+                <h2 class="section-title animate-on-scroll">Selamat Datang di Thé Ciliwung</h2>
                 <p class="animate-on-scroll">
-                    Berlokasi di Puncak, Bogor, Thè Ciliwung adalah tempat di mana waktu melambat. Dibangun dengan cinta dan hormat terhadap alam, kami menawarkan sebuah oase ketenangan bagi Anda yang ingin lari sejenak dari hiruk pikuk kehidupan kota. Setiap sudut dirancang untuk memberikan kenyamanan maksimal dan pengalaman yang tak terlupakan.
+                    Berlokasi di Puncak, Bogor, Thé Ciliwung adalah tempat di mana waktu melambat. Dibangun dengan cinta dan hormat terhadap alam, kami menawarkan sebuah oase ketenangan bagi Anda yang ingin lari sejenak dari hiruk pikuk kehidupan kota. Setiap sudut dirancang untuk memberikan kenyamanan maksimal dan pengalaman yang tak terlupakan.
                 </p>
             </div>
         </section>
@@ -106,7 +109,7 @@
                         </div>
                         <div class="tiket-card-content">
                             <h3 class="tiket-card-title">Tiket Masuk Kendaraan</h3>
-                            <p class="tiket-card-price">Motor Rp 5.000<br>Mobil Rp 10.000<br>Sepeda Rp 5.000</p>
+                            <p class="tiket-card-price">Motor Rp 10.000<br>Mobil Rp 15.000<br>Sepeda Rp 5.000</p>
                         </div>
                     </div>
                      <!-- Wara Wiri -->
@@ -122,11 +125,11 @@
                      <!-- Mobil Komodo -->
                     <div class="tiket-card animate-on-scroll">
                         <div class="tiket-card-icon">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.54-.89l-2-1.11A1 1 0 0 1 21 9.74V8a2 2 0 0 0-2-2h-3M3 16h3m-3 0v-3.15a1 1 0 0 1 .54-.89l2-1.11A1 1 0 0 0 3 9.74V8a2 2 0 0 1 2-2h3"/><path d="M6.17 6h11.66C18.49 6 19 6.51 19 7.17V11c0 .4-.21.78-.57 1s-1.03.3-1.43 0l-1.43-1.07a1 1 0 0 0-1.14 0L13 11l-1.43-1.07a1 1 0 0 0-1.14 0L9 11l-1.43-1.07a1 1 0 0 0-1.14 0L5 11c-.4.3-.97.3-1.43 0a1 1 0 0 1-.57-1V7.17C3 6.51 3.51 6 4.17 6H5"/></svg>
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.54-.89l-2-1.11A1 1 0 0 1 21 9.74V8a2 2 0 0 0-2-2h-3M3 16h3m-3 0v-3.15a1 1 0 0 1 .54-.89l2-1.11A1 1 0 0 0 3 9.74V8a2 2 0 0 1 2-2h3"/><path d="M6.17 6h11.66C18.49 6 19 6.51 19 7.17V11c0 .4-.21 .78-.57 1s-1.03 .3-1.43 0l-1.43-1.07a1 1 0 0 0-1.14 0L13 11l-1.43-1.07a1 1 0 0 0-1.14 0L9 11l-1.43-1.07a1 1 0 0 0-1.14 0L5 11c-.4 .3-.97 .3-1.43 0a1 1 0 0 1-.57-1V7.17C3 6.51 3.51 6 4.17 6H5"/></svg>
                         </div>
                         <div class="tiket-card-content">
                             <h3 class="tiket-card-title">Sewa Mobil Komodo</h3>
-                            <p class="tiket-card-price">Rp 550.000 / 3 jam</p>
+                            <p class="tiket-card-price">Lokal Rp 350.000<br>Mancanegara Rp 550.000</p>
                         </div>
                     </div>
                       <!-- ATV -->
@@ -136,7 +139,7 @@
                         </div>
                         <div class="tiket-card-content">
                             <h3 class="tiket-card-title">Sewa Mobil ATV</h3>
-                            <p class="tiket-card-price">Rp 400.000 / 3 jam</p>
+                            <p class="tiket-card-price">Lokal Rp 250.000<br>Mancanegara Rp 350.000</p>
                         </div>
                     </div>
                 </div>
@@ -149,7 +152,6 @@
             <svg class="decorative-leaf leaf-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50,0 C25,25 25,75 50,100 C75,75 75,25 50,0 Z M50,10 C65,30 65,70 50,90 C35,70 35,30 50,10 Z"/></svg>
             <div class="container">
                 <h2 class="section-title animate-on-scroll">Pilihan Camping</h2>
-                <p class="tax-note animate-on-scroll">*harga tersebut belum termasuk pengenaan Pajak PB1 10%</p>
                 <div class="kamar-grid">
                     <!-- Tenda 1 -->
                     <div class="kamar-card animate-on-scroll">
@@ -161,7 +163,7 @@
                                 <strong>Kapasitas:</strong> 2 Orang<br>
                                 <strong>Termasuk:</strong> Sleeping bag, matras, bantal.
                             </div>
-                            <a href="#kontak" class="button button-secondary">Rp350.000/malam</a>
+                            <a href="#" class="button button-secondary booking-button" data-type="Tenda 2 Orang">Rp350.000/malam</a>
                         </div>
                     </div>
                     <!-- Tenda 2 -->
@@ -174,7 +176,7 @@
                                 <strong>Kapasitas:</strong> 4 Orang<br>
                                 <strong>Termasuk:</strong> Sleeping bag, matras, bantal.
                             </div>
-                            <a href="#kontak" class="button button-secondary">Rp650.000/malam</a>
+                            <a href="#" class="button button-secondary booking-button" data-type="Tenda 4 Orang">Rp650.000/malam</a>
                         </div>
                     </div>
                     <!-- Tenda 3 -->
@@ -187,7 +189,7 @@
                                 <strong>Kapasitas:</strong> 6 Orang<br>
                                 <strong>Termasuk:</strong> Sleeping bag, matras, bantal.
                             </div>
-                            <a href="#kontak" class="button button-secondary">Rp1.000.000/malam</a>
+                            <a href="#" class="button button-secondary booking-button" data-type="Tenda 6 Orang">Rp1.000.000/malam</a>
                         </div>
                     </div>
                      <!-- Extra Bed -->
@@ -199,7 +201,7 @@
                             <div class="kamar-fasilitas">
                                 <strong>Kapasitas:</strong> 1 Orang
                             </div>
-                            <a href="#kontak" class="button button-secondary">Rp150.000/buah</a>
+                            <a href="#" class="button button-secondary booking-button" data-type="Extra Bed Camping">Rp150.000/buah</a>
                         </div>
                     </div>
                     <!-- Add-on Services -->
@@ -215,6 +217,7 @@
                         </div>
                     </div>
                 </div>
+                <p class="tax-note animate-on-scroll" style="margin-top: 2.5rem; margin-bottom: 0;">*harga tersebut belum termasuk pengenaan Pajak PB1 10%</p>
             </div>
         </section>
 
@@ -222,7 +225,6 @@
         <section id="glamping" class="section">
             <div class="container">
                 <h2 class="section-title animate-on-scroll">Pilihan Glamping</h2>
-                <p class="tax-note animate-on-scroll">*harga tersebut belum termasuk pengenaan Pajak PB1 10%</p>
                 <div class="kamar-grid">
                     <!-- Glamping 1 -->
                     <div class="kamar-card animate-on-scroll">
@@ -236,7 +238,7 @@
                                 <strong>Weekday:</strong> Rp1.600.000<br>
                                 <strong>Weekend:</strong> Rp2.100.000
                             </div>
-                            <a href="#kontak" class="button button-secondary">Pesan Sekarang</a>
+                            <a href="#" class="button button-secondary booking-button" data-type="Glamping View 360°">Pesan Sekarang</a>
                         </div>
                     </div>
                     <!-- Glamping 2 -->
@@ -251,7 +253,7 @@
                                 <strong>Weekday:</strong> Rp2.700.000<br>
                                 <strong>Weekend:</strong> Rp3.400.000
                             </div>
-                            <a href="#kontak" class="button button-secondary">Pesan Sekarang</a>
+                            <a href="#" class="button button-secondary booking-button" data-type="Glamping View 360° Connecting">Pesan Sekarang</a>
                         </div>
                     </div>
                     <!-- Glamping 3 -->
@@ -266,7 +268,7 @@
                                 <strong>Weekday:</strong> Rp1.600.000<br>
                                 <strong>Weekend:</strong> Rp2.100.000
                             </div>
-                            <a href="#kontak" class="button button-secondary">Pesan Sekarang</a>
+                            <a href="#" class="button button-secondary booking-button" data-type="Rumah Sarang Manyar">Pesan Sekarang</a>
                         </div>
                     </div>
                      <!-- Glamping 4 -->
@@ -281,7 +283,7 @@
                                 <strong>Weekday:</strong> Rp2.700.000<br>
                                 <strong>Weekend:</strong> Rp3.400.000
                             </div>
-                            <a href="#kontak" class="button button-secondary">Pesan Sekarang</a>
+                            <a href="#" class="button button-secondary booking-button" data-type="Rumah Sarang Manyar Connecting">Pesan Sekarang</a>
                         </div>
                     </div>
                      <!-- Glamping 5 -->
@@ -296,10 +298,11 @@
                                 <strong>Weekday:</strong> Rp320.000<br>
                                 <strong>Weekend:</strong> Rp400.000
                             </div>
-                            <a href="#kontak" class="button button-secondary">Pesan Sekarang</a>
+                            <a href="#" class="button button-secondary booking-button" data-type="Extra Bed Glamping">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>
+                <p class="tax-note animate-on-scroll" style="margin-top: 2.5rem; margin-bottom: 0;">*harga tersebut belum termasuk pengenaan Pajak PB1 10%</p>
             </div>
         </section>
 
@@ -310,7 +313,7 @@
                 <div class="kamar-grid">
                     <!-- Resto 1 -->
                     <div class="kamar-card animate-on-scroll">
-                        <img src="https://placehold.co/600x400/D4B996/483434?text=Resto+Telaga+Saat" alt="Resto Telaga Saat Thè Ciliwung">
+                        <img src="https://placehold.co/600x400/D4B996/483434?text=Resto+Telaga+Saat" alt="Resto Telaga Saat Thé Ciliwung">
                         <div class="kamar-card-content">
                             <h3>Resto Telaga Saat</h3>
                             <p class="kamar-deskripsi">Nikmati hidangan premium dengan pemandangan telaga yang menenangkan.</p>
@@ -319,7 +322,7 @@
                     </div>
                     <!-- Resto 2 -->
                     <div class="kamar-card animate-on-scroll">
-                        <img src="https://placehold.co/600x400/5B8A72/FFFFFF?text=Resto+Camping" alt="Resto Camping Thè Ciliwung">
+                        <img src="https://placehold.co/600x400/5B8A72/FFFFFF?text=Resto+Camping" alt="Resto Camping Thé Ciliwung">
                         <div class="kamar-card-content">
                             <h3>Resto Camping</h3>
                             <p class="kamar-deskripsi">Sajian praktis dan lezat untuk menemani petualangan berkemah Anda.</p>
@@ -328,7 +331,7 @@
                     </div>
                     <!-- Resto 3 -->
                     <div class="kamar-card animate-on-scroll">
-                        <img src="https://placehold.co/600x400/FDFBF5/6B4F4B?text=Warung+Shelter" alt="Warung Shelter Thè Ciliwung">
+                        <img src="https://placehold.co/600x400/FDFBF5/6B4F4B?text=Warung+Shelter" alt="Warung Shelter Thé Ciliwung">
                         <div class="kamar-card-content">
                             <h3>Warung Shelter</h3>
                             <p class="kamar-deskripsi">Tempat santai untuk menikmati kopi, teh, dan makanan ringan.</p>
@@ -342,24 +345,24 @@
         <!-- Galeri Section -->
         <section id="galeri" class="section">
             <div class="container">
-                <h2 class="section-title animate-on-scroll">Momen di Thè Ciliwung</h2>
+                <h2 class="section-title animate-on-scroll">Momen di Thé Ciliwung</h2>
                 <div class="galeri-grid animate-on-scroll">
-                    <img class="galeri-item galeri-item-1" src="galeri1.jpg" alt="Momen di Thè Ciliwung 1">
-                    <img class="galeri-item galeri-item-2" src="galeri2.jpg" alt="Momen di Thè Ciliwung 2">
-                    <img class="galeri-item galeri-item-3" src="galeri3.jpg" alt="Momen di Thè Ciliwung 3">
-                    <img class="galeri-item galeri-item-4" src="galeri4.jpg" alt="Momen di Thè Ciliwung 4">
-                    <img class="galeri-item galeri-item-5" src="galeri5.jpg" alt="Momen di Thè Ciliwung 5">
-                    <img class="galeri-item galeri-item-6" src="https://placehold.co/300x200/FDFBF5/6B4F4B?text=TC" alt="Momen di Thè Ciliwung 6">
-                    <img class="galeri-item galeri-item-7" src="https://placehold.co/300x400/D4B996/483434?text=TC" alt="Momen di Thè Ciliwung 7">
-                    <img class="galeri-item galeri-item-8" src="https://placehold.co/300x200/5B8A72/FFFFFF?text=TC" alt="Momen di Thè Ciliwung 8">
-                    <img class="galeri-item galeri-item-9" src="https://placehold.co/300x200/6B4F4B/FFFFFF?text=TC" alt="Momen di Thè Ciliwung 9">
-                    <img class="galeri-item galeri-item-10" src="https://placehold.co/600x400/D4B996/483434?text=TC" alt="Momen di Thè Ciliwung 10">
-                    <img class="galeri-item galeri-item-11" src="https://placehold.co/300x200/FDFBF5/6B4F4B?text=TC" alt="Momen di Thè Ciliwung 11">
-                    <img class="galeri-item galeri-item-12" src="https://placehold.co/300x200/5B8A72/FFFFFF?text=TC" alt="Momen di Thè Ciliwung 12">
-                    <img class="galeri-item galeri-item-13" src="https://placehold.co/300x200/D4B996/483434?text=TC" alt="Momen di Thè Ciliwung 13">
-                    <img class="galeri-item galeri-item-14" src="https://placehold.co/300x200/6B4F4B/FFFFFF?text=TC" alt="Momen di Thè Ciliwung 14">
-                    <img class="galeri-item galeri-item-15" src="https://placehold.co/300x200/FDFBF5/6B4F4B?text=TC" alt="Momen di Thè Ciliwung 15">
-                    <img class="galeri-item galeri-item-16" src="https://placehold.co/300x200/5B8A72/FFFFFF?text=TC" alt="Momen di Thè Ciliwung 16">
+                    <img class="galeri-item galeri-item-1" src="galeri1.jpg" alt="Momen di Thé Ciliwung 1">
+                    <img class="galeri-item galeri-item-2" src="galeri2.jpg" alt="Momen di Thé Ciliwung 2">
+                    <img class="galeri-item galeri-item-3" src="galeri3.jpg" alt="Momen di Thé Ciliwung 3">
+                    <img class="galeri-item galeri-item-4" src="galeri4.jpg" alt="Momen di Thé Ciliwung 4">
+                    <img class="galeri-item galeri-item-5" src="galeri5.jpg" alt="Momen di Thé Ciliwung 5">
+                    <img class="galeri-item galeri-item-6" src="https://placehold.co/300x200/FDFBF5/6B4F4B?text=TC" alt="Momen di Thé Ciliwung 6">
+                    <img class="galeri-item galeri-item-7" src="https://placehold.co/300x400/D4B996/483434?text=TC" alt="Momen di Thé Ciliwung 7">
+                    <img class="galeri-item galeri-item-8" src="https://placehold.co/300x200/5B8A72/FFFFFF?text=TC" alt="Momen di Thé Ciliwung 8">
+                    <img class="galeri-item galeri-item-9" src="https://placehold.co/300x200/6B4F4B/FFFFFF?text=TC" alt="Momen di Thé Ciliwung 9">
+                    <img class="galeri-item galeri-item-10" src="https://placehold.co/600x400/D4B996/483434?text=TC" alt="Momen di Thé Ciliwung 10">
+                    <img class="galeri-item galeri-item-11" src="https://placehold.co/300x200/FDFBF5/6B4F4B?text=TC" alt="Momen di Thé Ciliwung 11">
+                    <img class="galeri-item galeri-item-12" src="https://placehold.co/300x200/5B8A72/FFFFFF?text=TC" alt="Momen di Thé Ciliwung 12">
+                    <img class="galeri-item galeri-item-13" src="https://placehold.co/300x200/D4B996/483434?text=TC" alt="Momen di Thé Ciliwung 13">
+                    <img class="galeri-item galeri-item-14" src="https://placehold.co/300x200/6B4F4B/FFFFFF?text=TC" alt="Momen di Thé Ciliwung 14">
+                    <img class="galeri-item galeri-item-15" src="https://placehold.co/300x200/FDFBF5/6B4F4B?text=TC" alt="Momen di Thé Ciliwung 15">
+                    <img class="galeri-item galeri-item-16" src="https://placehold.co/300x200/5B8A72/FFFFFF?text=TC" alt="Momen di Thé Ciliwung 16">
                 </div>
             </div>
         </section>
@@ -371,7 +374,7 @@
                 <div id="video-player-container" class="video-container animate-on-scroll">
                     <!-- Cover dan Tombol Play -->
                     <div id="video-cover" class="video-cover">
-                        <img src="cover-video-theciliwung1.jpg" alt="Cover Video Suasana Thè Ciliwung">
+                        <img src="cover-video-theciliwung1.jpg" alt="Cover Video Suasana Thé Ciliwung">
                         <button id="play-button" class="video-play-button" aria-label="Putar Video">
                             <svg viewBox="0 0 100 100"><polygon points="40,30 70,50 40,70"></polygon></svg>
                         </button>
@@ -400,7 +403,7 @@
             <div class="footer-grid">
                 <!-- Kolom Alamat -->
                 <div class="footer-col">
-                    <img src="logo-theciliwung.png" alt="Logo Thè Ciliwung" class="logo-img-footer">
+                    <img src="logo-theciliwung.png" alt="Logo Thé Ciliwung" class="logo-img-footer">
                     <p>Jl. Nasional No.11, Tugu Utara, Kec. Cisarua, Kabupaten Bogor, Jawa Barat 16750</p>
                     <a href="https://maps.app.goo.gl/SwxxHF7ja97sA2Sd8" target="_blank" class="map-link">Buka di Google Maps</a>
                     <div class="map-container">
@@ -419,7 +422,7 @@
                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
                            <span>WhatsApp Admin 1</span>
                         </a>
-                        <a href="https://wa.me/6281919070705" target="_blank" class="contact-link-item">
+                        <a href="https://wa.me/62819190705" target="_blank" class="contact-link-item">
                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
                            <span>WhatsApp Admin 2</span>
                         </a>
@@ -447,7 +450,7 @@
                     <a href="#" class="modal-trigger" data-modal-id="syarat">Syarat dan Ketentuan</a>
                     <a href="#" class="modal-trigger" data-modal-id="kebijakan">Kebijakan Privasi</a>
                 </div>
-                <p>&copy; 2025 Thè Ciliwung. All Rights Reserved.</p>
+                <p>&copy; 2025 Thé Ciliwung. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -461,9 +464,57 @@
         </div>
     </div>
 
+    <!-- Modal Booking -->
+    <div id="booking-modal" class="message-modal">
+        <div class="message-modal-content">
+            <span id="booking-modal-close" class="message-modal-close">&times;</span>
+            <h2 class="form-title">Formulir Pemesanan</h2>
+            <form id="booking-form" class="message-form">
+                <div class="form-group">
+                    <label for="booking-type">Pilihan Akomodasi</label>
+                    <select id="booking-type" name="type" required>
+                        <option value="">-- Pilih Akomodasi --</option>
+                        <option value="Tenda 2 Orang">Camping: Tenda 2 Orang</option>
+                        <option value="Tenda 4 Orang">Camping: Tenda 4 Orang</option>
+                        <option value="Tenda 6 Orang">Camping: Tenda 6 Orang</option>
+                        <option value="Extra Bed Camping">Camping: Extra Bed</option>
+                        <option value="Glamping View 360°">Glamping: View 360°</option>
+                        <option value="Glamping View 360° Connecting">Glamping: View 360° Connecting</option>
+                        <option value="Rumah Sarang Manyar">Glamping: Rumah Sarang Manyar</option>
+                        <option value="Rumah Sarang Manyar Connecting">Glamping: Rumah Sarang Manyar Connecting</option>
+                        <option value="Extra Bed Glamping">Glamping: Extra Bed</option>
+                    </select>
+                </div>
+                <div class="form-group date-group">
+                    <div>
+                        <label for="check-in">Tanggal Check-in</label>
+                        <input type="date" id="check-in" name="check_in" required>
+                    </div>
+                    <div>
+                        <label for="check-out">Tanggal Check-out</label>
+                        <input type="date" id="check-out" name="check_out" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="booking-name">Nama Lengkap</label>
+                    <input type="text" id="booking-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="booking-email">Email</label>
+                    <input type="email" id="booking-email" name="email" required>
+                </div>
+                 <div class="form-group">
+                    <label for="booking-phone">Nomor WhatsApp</label>
+                    <input type="tel" id="booking-phone" name="phone" required>
+                </div>
+                <button type="submit" class="button button-primary">Kirim Permintaan Booking</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Tombol Pesan Mengambang -->
     <div id="floating-message-button" class="floating-message-button" aria-label="Kirim Pesan">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
     </div>
 
     <!-- Modal Pesan -->
