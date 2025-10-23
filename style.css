@@ -9,6 +9,7 @@
     
     --font-sans: 'Inter', sans-serif;
     --font-serif: 'Playfair Display', serif;
+    --bottom-nav-height: 60px; /* Variabel tinggi navigasi bawah */
 }
 
 /* === RESET DASAR & GAYA BODY === */
@@ -33,6 +34,7 @@ body {
     background-color: var(--color-cream);
     color: var(--color-brown);
     line-height: 1.6;
+    padding-bottom: var(--bottom-nav-height); /* Tambahkan padding di bawah body SEUKURAN tinggi nav bawah */
 }
 
 /* === CONTAINER === */
@@ -110,6 +112,10 @@ body {
     cursor: pointer;
     color: var(--color-brown-dark);
     z-index: 1001; /* Pastikan tombol di atas overlay */
+    padding: 0.5rem; /* Beri sedikit padding agar mudah diklik */
+    display: inline-flex; /* Agar ikon terpusat */
+    align-items: center;
+    justify-content: center;
 }
 
 /* === PEMBARUAN TAMPILAN MENU MOBILE === */
@@ -328,11 +334,9 @@ body {
 }
 
 /* Warna Latar Baru */
-#tiket {
-    background-color: #F8F6F2;
-}
+/* #tiket section tidak ada lagi di index.html */
 #camping {
-    background-color: #FDFBF5; /* Mengembalikan warna asli */
+    background-color: #FDFBF5; 
 }
 #resto {
     background-color: #F1F3F0;
@@ -419,61 +423,8 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     align-self: center;
 }
 
-/* === BAGIAN TIKET WISATA === */
-.tiket-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2.5rem;
-    align-items: stretch; /* Membuat semua item dalam satu baris memiliki tinggi yang sama */
-}
-
-.tiket-card {
-    background-color: var(--color-white);
-    border-radius: .75rem;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column; /* Mengubah arah flex menjadi kolom */
-    align-items: center;   /* Pusatkan item secara horizontal */
-    text-align: center;    /* Pusatkan teks */
-    gap: 1rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.tiket-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-}
-
-.tiket-card-icon {
-    flex-shrink: 0;
-    color: var(--color-tea-green);
-    margin-bottom: 0.5rem; /* Menambah jarak bawah ikon */
-}
-.tiket-card-icon svg {
-    width: 40px;
-    height: 40px;
-}
-
-.tiket-card-content {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Membuat konten mengisi ruang yang tersedia */
-    width: 100%;
-}
-
-.tiket-card-title {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem; /* Menyesuaikan jarak bawah judul */
-}
-
-.tiket-card-price {
-    font-size: 1rem;
-    color: var(--color-brown);
-    line-height: 1.4;
-    margin-top: auto; /* Mendorong harga ke bagian bawah kartu */
-}
+/* === BAGIAN TIKET WISATA (Dihapus dari index.html, gaya dipindahkan/disesuaikan di bawah untuk tiket.html) === */
+/* Gaya tiket-grid & tiket-card tidak diperlukan lagi di sini */
 
 
 /* === BAGIAN GALERI === */
@@ -576,6 +527,8 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     background-color: var(--color-brown-dark);
     color: var(--color-cream);
     padding: 3rem 0;
+    /* Tambahkan padding bawah jika diperlukan untuk nav bawah, TAPI lebih baik di body */
+    /* padding-bottom: calc(3rem + var(--bottom-nav-height)); */
 }
 .footer-grid {
     display: grid;
@@ -657,15 +610,15 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     color: var(--color-cream);
     transition: opacity 0.3s ease;
 }
+.contact-link-item .feather { /* Gaya ikon feather */
+    width: 20px;
+    height: 20px;
+    stroke: var(--color-cream);
+}
+
 
 .contact-link-item:hover {
     opacity: 0.8;
-}
-
-.contact-link-item svg {
-    width: 24px;
-    height: 24px;
-    fill: var(--color-cream);
 }
 
 .contact-link-item span {
@@ -683,30 +636,28 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     color: var(--color-cream);
     text-decoration: none;
     transition: transform 0.3s ease, opacity 0.3s ease;
+    display: inline-flex; /* Agar ikon terpusat */
 }
 .social-links a:hover {
     opacity: 0.8;
     transform: translateY(-2px);
 }
-.social-links svg {
+.social-links svg,
+.social-links .feather {
     width: 24px;
     height: 24px;
     stroke: var(--color-cream);
     fill: none;
-    stroke-width: 1.5px;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+    stroke-width: 1.5;
 }
 
 /* Penyesuaian untuk ikon yang diisi (filled) */
 .social-links .tiktok-icon svg,
-.social-links .threads-icon svg,
-.contact-links .contact-link-item svg {
-    width: 24px;
-    height: 24px;
+.social-links .threads-icon svg {
     fill: var(--color-cream);
     stroke: none;
 }
+
 
 .footer-bottom {
     border-top: 1px solid rgba(253, 251, 245, 0.2);
@@ -936,12 +887,12 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 /* === FLOATING MESSAGE BUTTON & MODAL === */
 .floating-message-button {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: calc(var(--bottom-nav-height) + 1rem); /* Posisikan di atas nav bawah */
+    right: 1.5rem;
     background-color: var(--color-tea-green);
     color: var(--color-white);
-    width: 60px;
-    height: 60px;
+    width: 50px; /* Sedikit lebih kecil */
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1181,6 +1132,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
+/* Hilangkan gaya highlight
 .package-card.highlight {
     background-color: var(--color-tea-green);
     color: var(--color-white);
@@ -1192,7 +1144,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 .package-card.highlight h3,
 .package-card.highlight .package-price {
     color: var(--color-white);
-}
+} */
 
 .package-card h3 {
     font-size: 1.5rem;
@@ -1347,7 +1299,137 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     left: 0;
 }
 
+/* === GAYA HALAMAN TIKET DETAIL BARU === */
+.tiket-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem; /* Jarak lebih besar antar item */
+}
+
+.tiket-detail-item {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    border-radius: .75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tiket-detail-item:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.tiket-detail-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.tiket-detail-content {
+    padding: 1.5rem;
+}
+
+.tiket-detail-content h3 {
+    font-size: 1.5rem;
+    color: var(--color-brown-dark);
+    margin-bottom: .75rem;
+}
+
+.tiket-detail-content p {
+    color: var(--color-brown);
+    margin-bottom: 1rem;
+}
+
+.tiket-detail-price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-tea-green);
+    margin-top: 1rem;
+}
+
+.tiket-detail-price-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+.tiket-detail-price-list li {
+     font-size: 1.1rem;
+     color: var(--color-brown-dark);
+     margin-bottom: .5rem;
+     font-weight: 500;
+}
+.tiket-detail-content small {
+    display: block;
+    margin-top: 1rem;
+    font-size: .85rem;
+    color: var(--color-brown);
+    font-style: italic;
+}
+
+
+/* === GAYA NAVIGASI BAWAH BARU === */
+.bottom-nav {
+    display: none; /* Sembunyikan di desktop */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--bottom-nav-height);
+    background-color: var(--color-white);
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    z-index: 998; /* Di bawah mobile menu overlay */
+    border-top: 1px solid #eee;
+}
+
+.bottom-nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-decoration: none;
+    color: var(--color-brown);
+    font-size: 0.75rem; /* Ukuran teks kecil */
+    flex: 1; /* Agar membagi ruang sama rata */
+    transition: color 0.3s ease;
+}
+
+.bottom-nav-link .feather,
+.bottom-nav-link svg {
+    width: 20px; /* Ukuran ikon */
+    height: 20px;
+    margin-bottom: 4px; /* Jarak antara ikon dan teks */
+    stroke-width: 2; /* Ketebalan garis ikon */
+}
+
+.bottom-nav-link.active {
+    color: var(--color-tea-green); /* Warna aktif */
+    font-weight: 600;
+}
+
+.bottom-nav-link.active .feather,
+.bottom-nav-link.active svg {
+    stroke: var(--color-tea-green); /* Warna ikon aktif */
+}
+
 /* === RESPONSIVE MEDIA QUERIES === */
+@media (max-width: 767px) { /* Hanya tampilkan nav bawah di mobile */
+    .bottom-nav {
+        display: flex; /* Tampilkan di mobile */
+    }
+    body {
+         padding-bottom: var(--bottom-nav-height); /* Pastikan konten tidak tertutup */
+    }
+    .floating-message-button {
+        bottom: calc(var(--bottom-nav-height) + 1rem); /* Posisikan di atas nav bawah */
+        right: 1.5rem;
+        width: 50px; /* Sedikit lebih kecil */
+        height: 50px;
+    }
+}
+
+
 @media (min-width: 768px) {
     .main-nav {
         display: flex;
@@ -1403,6 +1485,34 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     .menu-options {
         padding: 3rem;
     }
+    body {
+        padding-bottom: 0; /* Hapus padding bawah di desktop */
+    }
+     .floating-message-button { /* Kembalikan posisi tombol pesan */
+        bottom: 2rem;
+        right: 2rem;
+        width: 60px;
+        height: 60px;
+    }
+    .tiket-detail-grid { /* Tampilan 2 kolom untuk tiket di tablet/desktop */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+     .tiket-detail-item {
+        flex-direction: row; /* Gambar di kiri, teks di kanan */
+        align-items: center; /* Pusatkan secara vertikal */
+    }
+     .tiket-detail-item img {
+        width: 40%; /* Lebar gambar */
+        height: 100%; /* Tinggi gambar mengikuti tinggi card */
+        object-fit: cover;
+        border-radius: .75rem 0 0 .75rem; /* Bulatkan sudut kiri */
+    }
+    .tiket-detail-content {
+        width: 60%; /* Lebar konten teks */
+        padding: 1.5rem 2rem; /* Sesuaikan padding */
+    }
+
 }
 @media (min-width: 1024px) {
     .kamar-grid {
@@ -1412,17 +1522,9 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     .menu-detail-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+     .tiket-detail-grid { /* Tetap 2 kolom tapi mungkin lebih lebar */
+        /* grid-template-columns: repeat(2, 1fr); */
+        /* Anda bisa menambahkan gaya lain jika perlu */
+    }
 }
-" and am asking a query about/based on this code.
-Instructions to follow:
-  * Don't output/edit the document if the query is Direct/Simple. For example, if the query asks for a simple explanation, output a direct answer.
-  * Make sure to **edit** the document if the query shows the intent of editing the document, in which case output the entire edited document, **not just that section or the edits**.
-    * Don't output the same document/empty document and say that you have edited it.
-    * Don't change unrelated code in the document.
-  * Don't output  and  in your final response.
-  * Any references like "this" or "selected code" refers to the code between  and  tags.
-  * Just acknowledge my request in the introduction.
-  * Make sure to refer to the document as "Canvas" in your response.
-
-terapkan dan perbarui
 

@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script> 
 </head>
 <body>
 
@@ -21,41 +23,42 @@
             <a href="index.html" class="logo">
                 <img src="logo-theciliwung.png" alt="Logo Thé Ciliwung" class="logo-img">
             </a>
+            <!-- Navigasi Desktop (Hanya Scroll Internal di index.html) -->
             <nav class="main-nav">
-                <a href="#tentang">Tentang Kami</a>
-                <a href="#tiket">Tiket Wisata</a>
-                <a href="#camping">Camping</a>
+                <a href="#hero">Beranda</a>
+                <a href="#tentang">Tentang Kami</a> 
+                <a href="#tiket">Tiket Wisata</a> <!-- DIKEMBALIKAN -->
+                <a href="#camping">Adventure Camp</a> 
                 <a href="#glamping">Glamping</a>
                 <a href="#resto">Resto</a>
-                <a href="#galeri">Galeri</a>
+                <a href="#galeri">Majalah</a> 
                 <a href="#kontak">Kontak</a>
             </nav>
             <a href="#" class="button button-primary nav-button booking-button">Pesan Sekarang</a>
             <button id="mobile-menu-button" class="mobile-menu-button">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
+                <i data-feather="menu"></i>
             </button>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
+    <!-- Mobile Menu (Bisa ke halaman lain) -->
     <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
     <div id="mobile-menu" class="mobile-menu">
         <button id="mobile-menu-close" class="mobile-menu-close">&times;</button>
         <img src="logo-theciliwung.png" alt="Logo Thé Ciliwung" class="mobile-menu-logo">
-        <a href="#tentang">Tentang Kami</a>
-        <a href="#tiket">Tiket Wisata</a>
-        <a href="#camping">Camping</a>
+        <a href="#hero">Beranda</a>
+        <a href="#tentang">Tentang Kami</a> 
+        <a href="#tiket">Tiket Wisata</a> <!-- DIKEMBALIKAN -->
+        <a href="camp.html">Adventure Camp</a> <!-- Ke halaman camp.html -->
         <a href="#glamping">Glamping</a>
         <a href="#resto">Resto</a>
-        <a href="#galeri">Galeri</a>
+        <a href="#galeri">Majalah</a>
         <a href="#kontak">Kontak</a>
     </div>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero-section">
+        <section id="hero" class="hero-section">
             <div class="hero-slideshow">
                 <img src="header-background1.jpg" alt="Pemandangan Alam Eksotis 1" class="hero-background active">
                 <img src="header-background2.jpg" alt="Pemandangan Alam Eksotis 2" class="hero-background">
@@ -87,66 +90,72 @@
             </div>
         </section>
 
-        <!-- Tiket Wisata Section -->
-        <section id="tiket" class="section">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">Tiket Wisata & Sewa Kendaraan</h2>
-                <div class="tiket-grid">
-                    <!-- Tiket Masuk Pengunjung -->
-                    <div class="tiket-card animate-on-scroll">
-                        <div class="tiket-card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19.58A6.5 6.5 0 0 0 12 7a6.5 6.5 0 0 0 0 12.58z"/><path d="M12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/><path d="M12 7V4.5"/><path d="M12 4.5L10.5 2"/><path d="M12 4.5l1.5-2.5"/></svg>
-                        </div>
-                        <div class="tiket-card-content">
-                            <h3 class="tiket-card-title">Tiket Masuk Perkebunan</h3>
-                            <p class="tiket-card-price">Rp 25.000 / orang</p>
-                        </div>
-                    </div>
-                     <!-- Tiket Masuk Kendaraan -->
-                    <div class="tiket-card animate-on-scroll">
-                        <div class="tiket-card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9 12h2a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2H9V9a3 3 0 0 1 3-3h1"/></svg>
-                        </div>
-                        <div class="tiket-card-content">
-                            <h3 class="tiket-card-title">Parkir Kendaraan</h3>
-                            <p class="tiket-card-price">Motor Rp 10.000<br>Mobil Rp 15.000<br>Sepeda Rp 5.000</p>
-                        </div>
-                    </div>
-                     <!-- Wara Wiri -->
-                    <div class="tiket-card animate-on-scroll">
-                        <div class="tiket-card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16.5l-4-4 4-4"/><path d="M14 16.5l4-4-4-4"/><path d="M6 12h12"/></svg>
-                        </div>
-                        <div class="tiket-card-content">
-                            <h3 class="tiket-card-title">Wara Wiri</h3>
-                            <p class="tiket-card-price">Rp 25.000 / orang</p>
-                        </div>
-                    </div>
-                     <!-- Mobil Komodo -->
-                    <div class="tiket-card animate-on-scroll">
-                        <div class="tiket-card-icon">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.54-.89l-2-1.11A1 1 0 0 1 21 9.74V8a2 2 0 0 0-2-2h-3M3 16h3m-3 0v-3.15a1 1 0 0 1 .54-.89l2-1.11A1 1 0 0 0 3 9.74V8a2 2 0 0 1 2-2h3"/><path d="M6.17 6h11.66C18.49 6 19 6.51 19 7.17V11c0 .4-.21 .78-.57 1s-1.03 .3-1.43 0l-1.43-1.07a1 1 0 0 0-1.14 0L13 11l-1.43-1.07a1 1 0 0 0-1.14 0L9 11l-1.43-1.07a1 1 0 0 0-1.14 0L5 11c-.4 .3-.97 .3-1.43 0a1 1 0 0 1-.57-1V7.17C3 6.51 3.51 6 4.17 6H5"/></svg>
-                        </div>
-                        <div class="tiket-card-content">
-                            <h3 class="tiket-card-title">Sewa Mobil Komodo</h3>
-                            <p class="tiket-card-price">Lokal Rp 350.000<br>Mancanegara Rp 550.000</p>
-                        </div>
-                    </div>
-                      <!-- ATV -->
-                    <div class="tiket-card animate-on-scroll">
-                        <div class="tiket-card-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="18.5" cy="17.5" r="2.5"/><path d="M12 18H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h1m5-3L14 3h4a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-1.5M8 12h8"/><path d="M10 12v-2"/></svg>
-                        </div>
-                        <div class="tiket-card-content">
-                            <h3 class="tiket-card-title">Sewa Mobil ATV</h3>
-                            <p class="tiket-card-price">Lokal Rp 250.000<br>Mancanegara Rp 350.000</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Tiket Wisata Section (KEMBALI DENGAN IKON) -->
+         <section id="tiket" class="section">
+             <div class="container">
+                 <h2 class="section-title animate-on-scroll">Tiket Wisata & Sewa Kendaraan</h2>
+                 <div class="tiket-grid">
+                     <!-- Tiket Masuk Pengunjung -->
+                     <div class="tiket-card animate-on-scroll">
+                         <div class="tiket-card-icon">
+                             <i data-feather="user"></i> <!-- Ikon Pengunjung -->
+                         </div>
+                         <div class="tiket-card-content">
+                             <h3 class="tiket-card-title">Tiket Masuk Perkebunan</h3>
+                             <p class="tiket-card-price">Rp 25.000 / orang</p>
+                         </div>
+                     </div>
+                      <!-- Parkir Kendaraan -->
+                     <div class="tiket-card animate-on-scroll">
+                         <div class="tiket-card-icon">
+                             <i data-feather="truck"></i> <!-- Ikon Kendaraan -->
+                         </div>
+                         <div class="tiket-card-content">
+                             <h3 class="tiket-card-title">Parkir Kendaraan</h3>
+                             <p class="tiket-card-price">Motor Rp 10.000<br>Mobil Rp 15.000<br>Sepeda Rp 5.000</p>
+                         </div>
+                     </div>
+                      <!-- Wara Wiri -->
+                     <div class="tiket-card animate-on-scroll">
+                         <div class="tiket-card-icon">
+                             <i data-feather="navigation"></i> <!-- Ikon Navigasi/Shuttle -->
+                         </div>
+                         <div class="tiket-card-content">
+                             <h3 class="tiket-card-title">Wara Wiri</h3>
+                             <p class="tiket-card-price">Rp 25.000 / orang</p>
+                         </div>
+                     </div>
+                      <!-- Mobil Komodo -->
+                     <div class="tiket-card animate-on-scroll">
+                         <div class="tiket-card-icon">
+                            <!-- Ikon Mobil Offroad Sederhana -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-truck"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                         </div>
+                         <div class="tiket-card-content">
+                             <h3 class="tiket-card-title">Sewa Mobil Komodo</h3>
+                             <p class="tiket-card-price">Lokal Rp 350.000<br>Mancanegara Rp 550.000</p>
+                         </div>
+                     </div>
+                       <!-- ATV -->
+                     <div class="tiket-card animate-on-scroll">
+                         <div class="tiket-card-icon">
+                             <!-- Ikon ATV Sederhana -->
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-archive"><path d="M21 8V21H3V8"></path><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg> 
+                         </div>
+                         <div class="tiket-card-content">
+                             <h3 class="tiket-card-title">Sewa Mobil ATV</h3>
+                             <p class="tiket-card-price">Lokal Rp 250.000<br>Mancanegara Rp 350.000</p>
+                         </div>
+                     </div>
+                 </div>
+                 <!-- Tombol ke halaman tiket detail (opsional) -->
+                 <div class="detail-buttons" style="margin-top: 2.5rem;">
+                     <a href="tiket.html" class="button button-secondary">Lihat Detail Wisata</a>
+                 </div>
+             </div>
+         </section>
 
-        <!-- Camping Section -->
+        <!-- Camping Section (Preview) -->
         <section id="camping" class="section decorative-container">
              <!-- Dekorasi Daun -->
             <svg class="decorative-leaf leaf-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50,0 C25,25 25,75 50,100 C75,75 75,25 50,0 Z M50,10 C65,30 65,70 50,90 C35,70 35,30 50,10 Z"/></svg>
@@ -177,55 +186,10 @@
                             <a href="camp2.html" class="button button-secondary">Lihat Detail</a>
                         </div>
                     </div>
-                    <!-- Tenda 3 -->
-                    <div class="kamar-card animate-on-scroll">
-                        <img src="https://placehold.co/600x400/FDFBF5/6B4F4B?text=Tenda+6+Orang" alt="[Tenda camping besar untuk 6 orang]">
-                        <div class="kamar-card-content">
-                            <h3>Tenda Kapasitas 6</h3>
-                            <p class="kamar-deskripsi">Tenda paling luas untuk rombongan. Harga sudah termasuk pajak.</p>
-                             <div class="kamar-fasilitas">
-                                <strong>Gratis:</strong> Sarapan, Tea Ceremony & Tea Walk.
-                            </div>
-                            <a href="camp3.html" class="button button-secondary">Lihat Detail</a>
-                        </div>
-                    </div>
-                     <!-- Paket Camping Group -->
-                    <div class="kamar-card animate-on-scroll">
-                        <img src="https://placehold.co/600x400/6B4F4B/FFFFFF?text=Paket+Group" alt="[Paket camping untuk grup atau rombongan]">
-                        <div class="kamar-card-content">
-                            <h3>Paket Camping Group</h3>
-                            <p class="kamar-deskripsi">Sempurna untuk acara gathering, komunitas, atau liburan bersama rombongan besar.</p>
-                             <div class="kamar-fasilitas">
-                                <strong>Kapasitas:</strong> Min. 20 Orang<br>
-                                <strong>Termasuk:</strong> Tenda, sleeping bag, matras, aula, sound system.
-                            </div>
-                            <a href="camp_group.html" class="button button-secondary">Info Paket & Harga</a>
-                        </div>
-                    </div>
-                     <!-- Extra Bed -->
-                    <div class="kamar-card animate-on-scroll">
-                        <img src="https://placehold.co/600x400/D4B996/483434?text=Extra+Bed" alt="[Kasur tambahan atau extra bed]">
-                        <div class="kamar-card-content">
-                            <h3>Extra Bed Camping</h3>
-                            <p class="kamar-deskripsi">Tambahkan kasur ekstra untuk kenyamanan lebih. Harga sudah termasuk pajak.</p>
-                            <div class="kamar-fasilitas">
-                                <strong>Kapasitas:</strong> 1 Orang
-                            </div>
-                            <a href="#" class="button button-secondary booking-button" data-type="Extra Bed Camping">Rp 165.000/buah</a>
-                        </div>
-                    </div>
-                    <!-- Add-on Services -->
-                    <div class="kamar-card animate-on-scroll">
-                        <img src="https://placehold.co/600x400/6B4F4B/FFFFFF?text=Add-On" alt="[Layanan tambahan camping]">
-                        <div class="kamar-card-content">
-                            <h3>Add-on Services</h3>
-                            <p class="kamar-deskripsi">Layanan tambahan untuk melengkapi pengalaman berkemah Anda.</p>
-                             <div class="kamar-fasilitas">
-                                <strong>Layanan:</strong> Extra blanket, extra tungku kompor, dll.
-                            </div>
-                            <a href="#kontak" class="button button-secondary">Info Lanjut</a>
-                        </div>
-                    </div>
+                </div>
+                <!-- Tombol Lihat Selengkapnya -->
+                <div class="detail-buttons" style="margin-top: 2.5rem;">
+                     <a href="camp.html" class="button button-primary">Lihat Semua Pilihan Camp</a>
                 </div>
             </div>
         </section>
@@ -401,15 +365,15 @@
                     <h3>Hubungi Kami</h3>
                     <div class="contact-links">
                         <a href="https://ig.me/m/theciliwung" target="_blank" class="contact-link-item">
-                           <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 506 511.682"><path fill-rule="nonzero" d="M76.022 432.762c-14.224-17.624-28.477-36.009-40.468-55.504-13.738-22.329-24.838-46.442-30.326-73.172-14.057-68.387.935-136.064 36.561-190.148C77.414 59.833 133.687 19.322 202.118 5.235c68.394-14.071 136.056.928 190.14 36.547 54.105 35.632 94.638 91.912 108.71 160.35 7.003 34.067 6.445 67.452-.116 99.01-7.018 33.734-20.937 65.408-39.78 93.639-25.671 38.445-58.723 65.581-98.51 82.009-39.837 16.45-86.054 21.88-138.014 16.979l-9.714-.928c-19.966-1.928-27.528-2.653-33.487-1.094-4.343 1.181-9.932 3.69-18.842 7.677l-8.381 3.734c-20.756 9.229-36.009 10.44-47.878 6.14-15.499-5.618-22.503-17.566-25.765-33.023-1.624-7.706-2.139-15.739-2.675-24.221-.399-6.445-.841-13.231-1.784-19.292zm47.972-127.857l61.768-98.785c10.976-16.573 33.719-20.177 49.357-7.924l52.024 40.917c4.785 3.734 11.469 3.886 16.363.319l66.038-46.413c9.678-7.032 21.873 4.698 15.297 14.681l-62.355 97.785c-10.977 16.566-33.719 20.176-49.357 7.917l-52.024-40.918c-4.785-3.734-11.462-3.893-16.363-.319l-65.509 47.37c-9.671 7.032-21.872-4.64-15.239-14.63zM74.761 353.16c11.976 19.473 26.273 37.597 40.323 54.902a22.782 22.782 0 014.785 9.693c2.501 10.962 3.175 21.532 3.799 31.428.384 6.104.754 11.919 1.493 16.232 2.226-.775 5.633-2.16 10.462-4.299l8.177-3.596c11.23-5.031 18.284-8.192 25.679-10.164h.094c13.688-3.646 23.49-2.711 49.581-.188l9.716.928c44.484 4.197 83.43-.196 116.25-13.746 31.246-12.905 57.36-34.444 77.833-65.103 15.616-23.395 27.144-49.596 32.936-77.457 5.336-25.686 5.8-52.822.116-80.48-11.52-56.026-44.673-102.084-88.919-131.221-44.274-29.158-99.72-41.432-155.79-29.891-56.012 11.528-102.07 44.674-131.199 88.912-29.166 44.282-41.433 99.728-29.906 155.798 4.205 20.495 13.246 39.852 24.57 58.252z"/></svg>
+                           <i data-feather="instagram"></i>
                            <span>Instagram</span>
                         </a>
                         <a href="https://wa.me/6287737040708" target="_blank" class="contact-link-item">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
+                           <i data-feather="message-circle"></i>
                            <span>WhatsApp Admin 1</span>
                         </a>
                         <a href="https://wa.me/62819190705" target="_blank" class="contact-link-item">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">  <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
+                           <i data-feather="message-circle"></i>
                            <span>WhatsApp Admin 2</span>
                         </a>
                     </div>
@@ -419,13 +383,15 @@
                     <h3>Ikuti Kami</h3>
                     <div class="social-links">
                         <a href="https://www.instagram.com/theciliwung" target="_blank" class="instagram-icon" aria-label="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                            <i data-feather="instagram"></i>
                         </a>
                         <a href="https://www.tiktok.com/@theciliwung" target="_blank" class="tiktok-icon" aria-label="TikTok">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">  <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/></svg>
+                            <!-- SVG TikTok -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">  <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/></svg>
                         </a>
                         <a href="https://www.threads.net/@theciliwung" target="_blank" class="threads-icon" aria-label="Threads">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-threads" viewBox="0 0 16 16">  <path d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 1.3987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161"/></svg>
+                            <!-- SVG Threads -->
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-threads" viewBox="0 0 16 16">  <path d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 13.987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161"/></svg>
                         </a>
                     </div>
                 </div>
@@ -440,6 +406,30 @@
             </div>
         </div>
     </footer>
+
+    <!-- Bottom Navigation (Mobile Only) -->
+    <nav class="bottom-nav">
+        <a href="#hero" class="bottom-nav-link active">
+            <i data-feather="home"></i>
+            <span>Beranda</span>
+        </a>
+        <a href="#tiket" class="bottom-nav-link"> <!-- DIKEMBALIKAN -->
+             <i data-feather="map-pin"></i> 
+            <span>Wisata</span>
+        </a>
+        <a href="camp.html" class="bottom-nav-link"> 
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tent"><path d="M19 20L12 4L5 20H19Z M12 4L12 12"/></svg>
+            <span>Adv Camp</span> 
+        </a>
+        <a href="#resto" class="bottom-nav-link">
+            <i data-feather="coffee"></i>
+            <span>Resto</span>
+        </a>
+        <a href="#galeri" class="bottom-nav-link"> 
+            <i data-feather="book-open"></i> 
+            <span>Majalah</span>
+        </a>
+    </nav>
 
     <!-- Modal / Popup -->
     <div id="info-modal" class="modal">
@@ -465,10 +455,8 @@
                         <option value="Tenda 6 Orang">Camping: Tenda 6 Orang</option>
                         <option value="Paket Camping Group">Camping: Paket Group</option>
                         <option value="Extra Bed Camping">Camping: Extra Bed</option>
-                        <option value="Glamping View 360°">Glamping: View 360°</option>
-                        <option value="Glamping View 360° Connecting">Glamping: View 360° Connecting</option>
-                        <option value="Rumah Sarang Manyar">Glamping: Rumah Sarang Manyar</option>
-                        <option value="Rumah Sarang Manyar Connecting">Glamping: Rumah Sarang Manyar Connecting</option>
+                        <option value="Glamping View 360° / Sarang Manyar">Glamping: 360° / Sarang Manyar</option>
+                        <option value="Glamping / Manyar Connecting">Glamping: Connecting</option>
                         <option value="Extra Bed Glamping">Glamping: Extra Bed</option>
                     </select>
                 </div>
@@ -501,7 +489,7 @@
 
     <!-- Tombol Pesan Mengambang -->
     <div id="floating-message-button" class="floating-message-button" aria-label="Kirim Pesan">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        <i data-feather="message-square"></i>
     </div>
 
     <!-- Modal Pesan -->
@@ -532,6 +520,9 @@
 
 
     <script src="script.js"></script>
+    <script>
+        feather.replace(); // Inisialisasi Feather Icons
+    </script>
 </body>
 </html>
 
