@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="logo-theciliwung.png" type="image/png">
-    <title>Adventure Camp - Thé Ciliwung</title>
+    <title>Adventure Camp & Glamping - Thé Ciliwung</title> <!-- JUDUL DIPERBARUI -->
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Feather Icons -->
@@ -21,7 +21,6 @@
                  <a href="index.html#hero">Beranda</a>
                  <a href="tiket.html">Wisata</a> 
                  <a href="camp.html">Adventure Camp</a> <!-- Link ke halaman ini -->
-                 <a href="index.html#glamping">Glamping</a>
                  <a href="index.html#resto">Resto</a>
                  <a href="index.html#galeri">Majalah</a> 
                  <a href="index.html#kontak">Kontak</a>
@@ -40,19 +39,22 @@
          <a href="index.html#hero">Beranda</a>
          <a href="tiket.html">Wisata</a>
          <a href="camp.html">Adventure Camp</a> <!-- Link ke halaman ini -->
-         <a href="index.html#glamping">Glamping</a>
          <a href="index.html#resto">Resto</a>
          <a href="index.html#galeri">Majalah</a>
          <a href="index.html#kontak">Kontak</a>
      </div>
 
-    <main class="detail-page-main"> <!-- Menggunakan gaya halaman detail untuk padding -->
+    <!-- Hapus class detail-page-main agar latar belakang section bisa diatur manual -->
+    <main>
         <div class="container">
-             <!-- Konten Camping Section dipindahkan ke sini -->
-             <section id="camping" class="section decorative-container" style="padding-top: 2rem;">
+             <!-- ========================== -->
+             <!-- === BAGIAN ADVENTURE CAMP === -->
+             <!-- ========================== -->
+             <!-- Terapkan class .section dan id #camping (otomatis dapat background cream dari style.css) -->
+             <section id="camping" class="section decorative-container" style="padding-top: 4rem;"> <!-- Padding atas agar tidak terlalu mepet header -->
                  <!-- Dekorasi Daun -->
                 <svg class="decorative-leaf leaf-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50,0 C25,25 25,75 50,100 C75,75 75,25 50,0 Z M50,10 C65,30 65,70 50,90 C35,70 35,30 50,10 Z"/></svg>
-                <h2 class="section-title">Thé Ciliwung Adventure Camp</h2>
+                <h2 class="section-title">Adventure Camp</h2> 
                 <div class="kamar-grid">
                     <!-- Tenda 1 -->
                     <div class="kamar-card animate-on-scroll">
@@ -128,8 +130,92 @@
                             <a href="index.html#kontak" class="button button-secondary">Info Lanjut</a> <!-- Arahkan ke kontak di index -->
                         </div>
                     </div>
-                </div>
-             </section>
+                </div> <!-- Grid pertama ditutup -->
+             </section> <!-- Section pertama ditutup -->
+
+             <!-- ========================== -->
+             <!-- === BAGIAN GLAMPING (BARU) === -->
+             <!-- ========================== -->
+             <!-- Terapkan class .section dan background abu-abu muda (seperti resto) untuk pemisah visual -->
+             <section id="glamping" class="section" style="background-color: #F1F3F0;"> 
+                <h2 class="section-title animate-on-scroll">Pilihan Glamping</h2>
+                <div class="kamar-grid"> <!-- Grid baru untuk glamping -->
+                    <!-- Glamping 1: 360 View (BARU) -->
+                    <div class="kamar-card animate-on-scroll">
+                        <img src="https://placehold.co/600x400/D4B996/483434?text=Glamping+360+View" alt="[Glamping dengan pemandangan 360 derajat]">
+                        <div class="kamar-card-content">
+                            <h3>Glamping 360° View</h3>
+                            <p class="kamar-deskripsi">Nikmati pemandangan 360° perkebunan teh dari glamping mewah kami. Harga sudah termasuk pajak.</p>
+                            <div class="kamar-fasilitas">
+                                <strong>Kapasitas:</strong> 2-4 Orang<br>
+                                <strong>Fasilitas:</strong> AC, Kamar Mandi Pribadi, Air Panas, Wi-Fi.<br>
+                                <strong>GratIS:</strong> Sarapan, Tea Ceremony & Tea Walk.
+                            </div>
+                            <div class="kamar-harga">
+                                <strong>Weekday:</strong> Rp 1.760.000<br>
+                                <strong>Weekend:</strong> Rp 2.310.000
+                            </div>
+                            <button class="button button-secondary booking-button-direct" data-type="Glamping View 360°">Pesan Sekarang</button>
+                        </div>
+                    </div>
+
+                    <!-- Glamping 2: Sarang Manyar (BARU) -->
+                    <div class="kamar-card animate-on-scroll">
+                        <img src="https://placehold.co/600x400/D4B996/483434?text=Rumah+Sarang+Manyar" alt="[Glamping dengan desain unik Sarang Manyar]">
+                        <div class="kamar-card-content">
+                            <h3>Rumah Sarang Manyar</h3>
+                            <p class="kamar-deskripsi">Penginapan unik dengan desain ikonik Sarang Manyar. Harga sudah termasuk pajak.</p>
+                            <div class="kamar-fasilitas">
+                                <strong>Kapasitas:</strong> 2-4 Orang<br>
+                                <strong>Fasilitas:</strong> AC, Kamar Mandi Pribadi, Air Panas, Wi-Fi.<br>
+                                <strong>Gratis:</strong> Sarapan, Tea Ceremony & Tea Walk.
+                            </div>
+                            <div class="kamar-harga">
+                                <strong>Weekday:</strong> Rp 1.760.000<br>
+                                <strong>Weekend:</strong> Rp 2.310.000
+                            </div>
+                            <button class="button button-secondary booking-button-direct" data-type="Glamping Sarang Manyar">Pesan Sekarang</button>
+                        </div>
+                    </div>
+
+                    <!-- Glamping 3: Connecting (BARU) -->
+                    <div class="kamar-card animate-on-scroll">
+                        <img src="https://placehold.co/600x400/5B8A72/FFFFFF?text=Glamping+Connecting" alt="[Glamping connecting room]">
+                        <div class="kamar-card-content">
+                            <h3>Glamping / Manyar Connecting</h3>
+                            <p class="kamar-deskripsi">Dua unit terhubung, ideal untuk keluarga besar. Harga sudah termasuk pajak.</p>
+                            <div class="kamar-fasilitas">
+                                <strong>Kapasitas:</strong> 4-8 Orang<br>
+                                <strong>Fasilitas:</strong> AC, Kamar Mandi Pribadi, Air Panas, Wi-Fi.<br>
+                                <strong>Gratis:</strong> Sarapan, Tea Ceremony & Tea Walk.
+                            </div>
+                            <div class="kamar-harga">
+                                <strong>Weekday:</strong> Rp 2.970.000<br>
+                                <strong>Weekend:</strong> Rp 3.740.000
+                            </div>
+                            <button class="button button-secondary booking-button-direct" data-type="Glamping / Manyar Connecting">Pesan Sekarang</button>
+                        </div>
+                    </div>
+
+                    <!-- Glamping 4: Extra Bed (BARU) -->
+                    <div class="kamar-card animate-on-scroll">
+                        <img src="https://placehold.co/600x400/5B8A72/FFFFFF?text=Extra+Bed+Glamping" alt="[Extra Bed untuk Glamping]">
+                        <div class="kamar-card-content">
+                            <h3>Extra Bed Glamping</h3>
+                            <p class="kamar-deskripsi">Kasur tambahan untuk kenyamanan lebih. Harga sudah termasuk pajak.</p>
+                             <div class="kamar-fasilitas">
+                                <strong>Kapasitas:</strong> 1 Orang<br>
+                                <strong>Gratis:</strong> Sarapan, Tea Ceremony & Tea Walk.
+                            </div>
+                            <div class="kamar-harga">
+                                <strong>Weekday:</strong> Rp 352.000<br>
+                                <strong>Weekend:</strong> Rp 440.000
+                            </div>
+                            <button class="button button-secondary booking-button-direct" data-type="Extra Bed Glamping">Pesan Sekarang</button>
+                        </div>
+                    </div>
+                </div> <!-- Grid kedua ditutup -->
+             </section> <!-- Section kedua ditutup -->
         </div>
     </main>
 
@@ -217,7 +303,9 @@
                           <option value="Tenda 6 Orang">Camping: Tenda 6 Orang</option>
                           <option value="Paket Camping Group">Camping: Paket Group</option>
                           <option value="Extra Bed Camping">Camping: Extra Bed</option>
-                          <option value="Glamping View 360° / Sarang Manyar">Glamping: 360° / Sarang Manyar</option>
+                          <!-- OPSI MODAL DIPERBARUI -->
+                          <option value="Glamping View 360°">Glamping: 360° View</option>
+                          <option value="Glamping Sarang Manyar">Glamping: Sarang Manyar</option>
                           <option value="Glamping / Manyar Connecting">Glamping: Connecting</option>
                           <option value="Extra Bed Glamping">Glamping: Extra Bed</option>
                       </select>
@@ -388,3 +476,4 @@
      </script>
 </body>
 </html>
+

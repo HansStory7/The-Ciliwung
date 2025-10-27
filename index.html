@@ -28,7 +28,7 @@
                 <a href="#hero">Beranda</a>
                 <a href="#tentang">Tentang Kami</a> 
                 <a href="#tiket">Tiket Wisata</a> <!-- DIKEMBALIKAN -->
-                <a href="#camping">Adventure Camp</a> 
+                <a href="camp.html">Adventure Camp</a> <!-- DIUBAH KE camp.html -->
                 <a href="#glamping">Glamping</a>
                 <a href="#resto">Resto</a>
                 <a href="#galeri">Majalah</a> 
@@ -71,7 +71,7 @@
                 <h1>Thé Ciliwung Tea Estate</h1>
                 <p class="hero-subtitle">est. 1907</p>
                 <p>Penginapan eksklusif yang memadukan kemewahan minimalis dengan keasrian alam yang menenangkan.</p>
-                <a href="#camping" class="button button-primary button-lg button-float">Lihat Pilihan Penginapan</a>
+                <a href="camp.html" class="button button-primary button-lg button-float">Lihat Pilihan Penginapan</a> <!-- DIUBAH KE camp.html -->
             </div>
             <button class="slide-nav prev-slide" aria-label="Gambar sebelumnya">&#10094;</button>
             <button class="slide-nav next-slide" aria-label="Gambar berikutnya">&#10095;</button>
@@ -186,6 +186,18 @@
                             <a href="camp2.html" class="button button-secondary">Lihat Detail</a>
                         </div>
                     </div>
+                    <!-- Tenda 3 (BARU DITAMBAHKAN) -->
+                    <div class="kamar-card animate-on-scroll">
+                        <img src="https://placehold.co/600x400/FDFBF5/6B4F4B?text=Tenda+6+Orang" alt="[Tenda camping besar untuk 6 orang]">
+                        <div class="kamar-card-content">
+                            <h3>Tenda Kapasitas 6</h3>
+                            <p class="kamar-deskripsi">Tenda paling luas untuk rombongan. Harga sudah termasuk pajak.</p>
+                             <div class="kamar-fasilitas">
+                                <strong>Gratis:</strong> Sarapan, Tea Ceremony & Tea Walk.
+                            </div>
+                            <a href="camp3.html" class="button button-secondary">Lihat Detail</a>
+                        </div>
+                    </div>
                 </div>
                 <!-- Tombol Lihat Selengkapnya -->
                 <div class="detail-buttons" style="margin-top: 2.5rem;">
@@ -226,7 +238,7 @@
                             <div class="kamar-fasilitas">
                                 <strong>Kapasitas:</strong> 4-8 Orang<br>
                                 <strong>Fasilitas:</strong> AC, Kamar Mandi Pribadi, Air Panas, Wi-Fi.<br>
-                                <strong>Gratis:</strong> Sarapan, Tea Ceremony & Tea Walk.
+                                <strong>GratIS:</strong> Sarapan, Tea Ceremony & Tea Walk.
                             </div>
                             <div class="kamar-harga">
                                 <strong>Weekday:</strong> Rp 2.970.000<br>
@@ -252,6 +264,10 @@
                             <a href="#" class="button button-secondary booking-button" data-type="Extra Bed Glamping">Pesan Sekarang</a>
                         </div>
                     </div>
+                </div>
+                 <!-- Tombol Lihat Selengkapnya -->
+                <div class="detail-buttons" style="margin-top: 2.5rem;">
+                     <a href="camp.html#glamping" class="button button-primary">Lihat Semua Pilihan Glamping</a> <!-- DIUBAH KE camp.html#glamping -->
                 </div>
             </div>
         </section>
@@ -455,8 +471,10 @@
                         <option value="Tenda 6 Orang">Camping: Tenda 6 Orang</option>
                         <option value="Paket Camping Group">Camping: Paket Group</option>
                         <option value="Extra Bed Camping">Camping: Extra Bed</option>
-                        <option value="Glamping View 360° / Sarang Manyar">Glamping: 360° / Sarang Manyar</option>
-                        <option value="Glamping / Manyar Connecting">Glamping: Connecting</option>
+                        <option value="Glamping 360° View">Glamping: 360° View</option>
+                        <option value="Rumah Sarang Manyar">Glamping: Rumah Sarang Manyar</option>
+                        <option value="Glamping Connecting">Glamping: Connecting</option>
+                        <option value="Manyar Connecting">Glamping: Manyar Connecting</option>
                         <option value="Extra Bed Glamping">Glamping: Extra Bed</option>
                     </select>
                 </div>
@@ -518,11 +536,9 @@
     <!-- Notifikasi Popup -->
     <div id="notification-popup" class="notification-popup">Pesan Anda telah terkirim!</div>
 
-
+    <!-- Tautkan file script.js eksternal -->
     <script src="script.js"></script>
-    <script>
-        feather.replace(); // Inisialisasi Feather Icons
-    </script>
+    
 </body>
 </html>
 

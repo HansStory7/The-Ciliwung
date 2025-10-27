@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo-theciliwung.png" type="image/png">
+    <title>Booking - Thè Ciliwung</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="logo-theciliwung.png" alt="Logo Thè Ciliwung" class="logo-img">
+            </a>
+            <nav class="main-nav">
+                <a href="index.html#tentang">Tentang Kami</a>
+                <a href="index.html#camping">Camping</a>
+                <a href="index.html#glamping">Glamping</a>
+                <a href="index.html#resto">Resto</a>
+                <a href="index.html#galeri">Galeri</a>
+                <a href="index.html#kontak">Kontak</a>
+            </nav>
+            <a href="booking.html" class="button button-primary nav-button">Booking Sekarang</a>
+        </div>
+    </header>
+
+    <main class="booking-page-main">
+        <div class="container">
+            <div class="booking-form-container">
+                <h1 class="booking-title">Formulir Pemesanan</h1>
+                <p class="booking-subtitle">Silakan isi detail di bawah ini untuk melakukan reservasi. Kami akan segera menghubungi Anda untuk konfirmasi.</p>
+                <form id="booking-form" class="booking-form">
+                    <div class="form-group">
+                        <label for="booking-name">Nama Lengkap</label>
+                        <input type="text" id="booking-name" name="name" required placeholder="Contoh: Budi Santoso">
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-email">Alamat Email</label>
+                        <input type="email" id="booking-email" name="email" required placeholder="Contoh: budi@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-phone">Nomor Telepon (WhatsApp)</label>
+                        <input type="tel" id="booking-phone" name="phone" required placeholder="Contoh: 081234567890">
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="check-in-date">Tanggal Check-in</label>
+                            <input type="date" id="check-in-date" name="checkin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="check-out-date">Tanggal Check-out</label>
+                            <input type="date" id="check-out-date" name="checkout" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="accommodation-type">Tipe Akomodasi</label>
+                        <select id="accommodation-type" name="accommodation" required>
+                            <option value="" disabled selected>Pilih Tipe Akomodasi</option>
+                            <option value="Tenda Kapasitas 2">Camping - Tenda Kapasitas 2</option>
+                            <option value="Tenda Kapasitas 4">Camping - Tenda Kapasitas 4</option>
+                            <option value="Tenda Kapasitas 6">Camping - Tenda Kapasitas 6</option>
+                            <option value="Glamping View 360">Glamping - View 360°</option>
+                            <option value="Glamping View 360 Connecting">Glamping - View 360° Connecting</option>
+                            <option value="Rumah Sarang Manyar">Glamping - Rumah Sarang Manyar</option>
+                            <option value="Rumah Sarang Manyar Connecting">Glamping - Rumah Sarang Manyar Connecting</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="guest-count">Jumlah Tamu</label>
+                        <input type="number" id="guest-count" name="guests" min="1" required placeholder="2">
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-message">Pesan Tambahan (Opsional)</label>
+                        <textarea id="booking-message" name="message" rows="4" placeholder="Apakah ada permintaan khusus?"></textarea>
+                    </div>
+                    <button type="submit" class="button button-primary button-lg">Kirim Permintaan Booking</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Notifikasi Popup -->
+    <div id="notification-popup" class="notification-popup"></div>
+
+    <!-- Impor Firebase SDK -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>

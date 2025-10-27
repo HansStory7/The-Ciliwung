@@ -1,3 +1,4 @@
+// SELURUH LOGIKA JAVASCRIPT LENGKAP
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Logika untuk Menu Mobile ---
@@ -23,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileMenuOverlay.addEventListener('click', closeMobileMenu);
         mobileMenuLinks.forEach(link => {
             const href = link.getAttribute('href');
-            // Hanya tutup jika link BUKAN ke halaman lain (mulai dengan # atau hanya index.html#)
-             if (href && (href.startsWith('#') || href.startsWith('index.html#') || href === 'index.html')) {
+            // Tutup jika link adalah anchor di halaman yang sama atau link ke halaman lain
+             if (href && (href.startsWith('#') || !href.startsWith('index.html'))) {
                  link.addEventListener('click', closeMobileMenu); 
             }
         });
@@ -93,12 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { threshold: 0.1 }); 
         scrollElements.forEach(el => observer.observe(el));
     } else {
-        // Fallback
-        const elementInView = (el, dividend = 1) => { /* ... (fallback logic) ... */ };
-        const displayScrollElement = (element) => element.classList.add('is-visible');
-        const handleScrollAnimation = () => { /* ... (fallback logic) ... */ };
-        window.addEventListener('scroll', handleScrollAnimation);
-        handleScrollAnimation(); 
+        // Fallback sederhana jika tidak ada IntersectionObserver
+        scrollElements.forEach(el => el.classList.add('is-visible'));
     }
 
 
@@ -115,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentPath = window.location.pathname.split('/').pop() || 'index.html'; // Dapatkan nama file saat ini
 
         // Tentukan section aktif berdasarkan scroll (HANYA jika di index.html)
-        if (currentPath === 'index.html') {
+        if (currentPath === 'index.html' || currentPath === '') {
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - headerHeight - 10; // Beri sedikit offset tambahan
                 const sectionHeight = section.offsetHeight;
@@ -148,20 +145,25 @@ document.addEventListener('DOMContentLoaded', () => {
         headerNavLinks.forEach(link => {
             link.classList.remove('active-link');
             const linkHref = link.getAttribute('href');
+            const linkTargetFile = linkHref.split('#')[0];
             const linkTargetHash = linkHref.includes('#') ? linkHref.split('#')[1] : null;
 
-            // Header di desktop HANYA link internal #hash ke index.html
-            if (currentPath === 'index.html' && linkTargetHash && linkTargetHash === currentSectionId) {
-                 link.classList.add('active-link');
-            } else if (currentPath === 'index.html' && !linkTargetHash && currentSectionId === 'hero' && link.textContent === 'Beranda') {
-                 link.classList.add('active-link');
+            // Logika aktivasi untuk header
+            if ((currentPath === 'index.html' || currentPath === '') && linkTargetHash && linkTargetHash === currentSectionId) {
+                 link.classList.add('active-link'); // Scroll di index
+            } else if ((currentPath === 'index.html' || currentPath === '') && !linkTargetHash && currentSectionId === 'hero' && link.textContent === 'Beranda') {
+                 link.classList.add('active-link'); // Beranda di index
             }
-             // Handle kasus Majalah -> #galeri
-             else if (currentPath === 'index.html' && linkTargetHash === 'galeri' && currentSectionId === 'galeri' && link.textContent === 'Majalah') {
+             else if (linkTargetFile === 'tiket.html' && currentSectionId === 'tiket') {
+                 link.classList.add('active-link'); // Link ke tiket.html
+             }
+             else if (linkTargetFile === 'camp.html' && currentSectionId === 'camping') {
+                 link.classList.add('active-link'); // Link ke camp.html
+             }
+             else if (linkTargetHash === 'galeri' && currentSectionId === 'galeri' && link.textContent === 'Majalah') {
                  link.classList.add('active-link');
              }
-             // Handle kasus Tiket -> #tiket (BARU DITAMBAHKAN KEMBALI)
-              else if (currentPath === 'index.html' && linkTargetHash === 'tiket' && currentSectionId === 'tiket' && link.textContent === 'Tiket Wisata') {
+             else if (linkTargetHash === 'tiket' && currentSectionId === 'tiket' && link.textContent === 'Tiket Wisata') {
                  link.classList.add('active-link');
              }
         });
@@ -174,21 +176,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const linkTargetHash = linkHref.includes('#') ? linkHref.split('#')[1] : null;
             const linkText = link.querySelector('span')?.textContent || ''; 
 
-            // Prioritaskan aktivasi berdasarkan halaman saat ini jika link mengarah ke halaman lain
-            if (linkTargetFile === 'tiket.html' && currentPath === 'tiket.html') {
+            // Prioritaskan aktivasi berdasarkan halaman saat ini
+            if (linkTargetFile === 'tiket.html' && (currentPath === 'tiket.html' || currentSectionId === 'tiket')) {
                  link.classList.add('active'); 
-             } else if (linkTargetFile === 'camp.html' && currentPath.startsWith('camp')) { // Mencakup camp.html, camp1, dll
+             } else if (linkTargetFile === 'camp.html' && (currentPath.startsWith('camp') || currentSectionId === 'camping')) {
                  link.classList.add('active'); 
              } 
              // Jika kita di index.html, aktifkan berdasarkan scroll section
-             else if (currentPath === 'index.html') { 
+             else if (currentPath === 'index.html' || currentPath === '') { 
                  if (linkTargetHash && linkTargetHash === currentSectionId) {
                      link.classList.add('active');
-                 } else if (linkTargetHash === 'hero' && currentSectionId === 'hero' && linkText === 'Beranda') {
+                 } else if ((linkTargetHash === 'hero' || linkTargetFile === 'index.html') && currentSectionId === 'hero' && linkText === 'Beranda') {
                      link.classList.add('active');
                  } else if (linkTargetHash === 'galeri' && currentSectionId === 'galeri' && linkText === 'Majalah') {
                       link.classList.add('active');
-                 } else if (linkTargetHash === 'tiket' && currentSectionId === 'tiket' && linkText === 'Wisata') { // Aktifkan Wisata (#tiket)
+                 } else if (linkTargetHash === 'resto' && currentSectionId === 'resto' && linkText === 'Resto') {
                       link.classList.add('active');
                  }
              }
@@ -205,23 +207,79 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('hashchange', activateLinks); 
 
 
-    // --- Logika Modal / Popup Info ---
+    // --- Logika Modal / Popup Info (DILENGKAPI) ---
      const modal = document.getElementById('info-modal');
      const modalTitle = document.getElementById('modal-title');
      const modalBody = document.getElementById('modal-body');
      const closeModalButton = modal ? modal.querySelector('.modal-close') : null; 
      const modalTriggers = document.querySelectorAll('.modal-trigger');
+     
+     // ISI KONTEN MODAL
      const modalContent = { 
-         panduan: { /*...*/ },
-         syarat: { /*...*/ },
-         kebijakan: { /*...*/ }
+         panduan: {
+            title: "Panduan Pemesanan",
+            body: `
+                <p><strong>Cara Memesan:</strong></p>
+                <ol style="list-style-type: decimal; padding-left: 20px; margin-left: 1rem;">
+                    <li>Pilih akomodasi (Camping atau Glamping) yang Anda inginkan.</li>
+                    <li>Klik tombol "Pesan Sekarang" atau "Lihat Detail" untuk informasi lebih lanjut.</li>
+                    <li>Anda dapat mengisi formulir "Kirim Permintaan Booking" atau menghubungi Admin WhatsApp kami.</li>
+                    <li>Tim kami akan mengonfirmasi ketersediaan dan total biaya melalui WhatsApp.</li>
+                    <li>Pembayaran dapat dilakukan melalui transfer bank.</li>
+                </ol>
+                <p style="margin-top: 1rem;"><strong>Check-in & Check-out:</strong></p>
+                <ul style="list-style-type: disc; padding-left: 20px; margin-left: 1rem;">
+                    <li>Waktu Check-in: 14:00 WIB</li>
+                    <li>Waktu Check-out: 12:00 WIB</li>
+                </ul>
+            `
+        },
+        syarat: {
+            title: "Syarat dan Ketentuan",
+            body: `
+                <ul style="list-style-type: disc; padding-left: 20px; margin-left: 1rem;">
+                    <li>Dilarang membawa minuman keras dan obat-obatan terlarang.</li>
+                    <li>Dilarang membuat keributan yang mengganggu kenyamanan tamu lain.</li>
+                    <li>Harap menjaga kebersihan area camping/glamping.</li>
+                    <li>Api unggun hanya boleh dinyalakan di area yang telah disediakan.</li>
+                    <li>Manajemen Thé Ciliwung tidak bertanggung jawab atas kehilangan atau kerusakan barang pribadi tamu.</li>
+                    <li>Pembatalan H-7: Pengembalian dana 50%.</li>
+                    <li>Pembatalan H-3: Tidak ada pengembalian dana.</li>
+                </ul>
+            `
+        },
+        kebijakan: {
+            title: "Kebijakan Privasi",
+            body: `
+                <p>Thé Ciliwung menghargai privasi Anda. Informasi pribadi yang Anda berikan saat pemesanan (nama, email, nomor telepon) hanya akan digunakan untuk keperluan konfirmasi reservasi dan komunikasi layanan.</p>
+                <p style="margin-top: 1rem;">Kami tidak akan membagikan, menjual, atau menyewakan informasi pribadi Anda kepada pihak ketiga tanpa persetujuan Anda, kecuali diwajibkan oleh hukum.</p>
+            `
+        }
      };
-      if (modal && closeModalButton && modalTriggers.length > 0) { 
-          modalTriggers.forEach(trigger => { /* ... listener ... */ });
+      
+      // PASANG EVENT LISTENER
+      if (modal && closeModalButton && modalTriggers.length > 0 && modalTitle && modalBody) { 
+          modalTriggers.forEach(trigger => {
+              trigger.addEventListener('click', (e) => {
+                   e.preventDefault(); // Mencegah link # beraksi
+                   const modalId = trigger.getAttribute('data-modal-id');
+                   const content = modalContent[modalId];
+
+                   if (content) {
+                       modalTitle.textContent = content.title;
+                       modalBody.innerHTML = content.body;
+                       modal.classList.add('active'); // Tampilkan modal
+                   }
+              });
+          });
+          
           const closeModal = () => modal.classList.remove('active');
           closeModalButton.addEventListener('click', closeModal);
-          modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+          modal.addEventListener('click', (e) => { 
+              if (e.target === modal) closeModal(); 
+          });
       }
+
 
     // --- Logika Modal Pesan ---
      const floatingButton = document.getElementById('floating-message-button');
@@ -229,39 +287,157 @@ document.addEventListener('DOMContentLoaded', () => {
      const messageModalClose = messageModal ? messageModal.querySelector('#message-modal-close') : null; 
      const messageForm = document.getElementById('message-form');
      const notificationPopup = document.getElementById('notification-popup');
+      
       if (floatingButton && messageModal && messageModalClose && messageForm && notificationPopup) { 
           floatingButton.addEventListener('click', () => messageModal.classList.add('active'));
           const closeMessageModal = () => messageModal.classList.remove('active');
           messageModalClose.addEventListener('click', closeMessageModal);
           messageModal.addEventListener('click', (e) => { if (e.target === messageModal) closeMessageModal(); });
-          messageForm.addEventListener('submit', (e) => { /* ... listener submit ... */ });
-      } else { console.error("Elemen modal pesan tidak ditemukan semua."); }
+          
+          messageForm.addEventListener('submit', (e) => { 
+              e.preventDefault();
+              // Logika submit form di sini (misal: kirim ke backend)
+              console.log('Form pesan dikirim');
+              closeMessageModal();
+              notificationPopup.textContent = 'Pesan Anda telah terkirim!';
+              notificationPopup.style.backgroundColor = ''; // Reset jika sebelumnya error
+              notificationPopup.classList.add('show');
+              setTimeout(() => {
+                  notificationPopup.classList.remove('show');
+              }, 3000);
+          });
+      } else { 
+          console.warn("Elemen modal pesan tidak ditemukan di halaman ini."); 
+      }
 
-     // --- Logika Modal Booking ---
+     // --- Logika Modal Booking (GLOBAL) ---
      const bookingModal = document.getElementById('booking-modal');
      const bookingModalClose = bookingModal ? bookingModal.querySelector('#booking-modal-close') : null; 
-     const bookingButtons = document.querySelectorAll('.booking-button'); 
-     const directBookingButtons = document.querySelectorAll('.booking-button-direct'); 
+     const bookingButtons = document.querySelectorAll('.booking-button'); // Tombol umum
+     const directBookingButtons = document.querySelectorAll('.booking-button-direct'); // Tombol di halaman camp.html
      const bookingForm = document.getElementById('booking-form');
      const bookingTypeSelect = document.getElementById('booking-type');
+      
       if (bookingModal && bookingModalClose && (bookingButtons.length > 0 || directBookingButtons.length > 0) && bookingForm && bookingTypeSelect && notificationPopup) { 
-           const openBookingModal = (bookingType = '') => { /* ... fungsi open ... */ };
-           const closeBookingModal = () => { /* ... fungsi close ... */ };
-           bookingButtons.forEach(button => { /* ... listener ... */ });
-           directBookingButtons.forEach(button => { /* ... listener ... */ });
-           bookingModalClose.addEventListener('click', closeBookingModal);
-           bookingModal.addEventListener('click', (e) => { if (e.target === bookingModal) closeBookingModal(); });
-           bookingForm.addEventListener('submit', (e) => { /* ... listener submit ... */ });
-      } else { console.warn("Elemen modal booking tidak ditemukan di halaman ini atau tombol booking tidak ada."); }
+           
+           const openBookingModal = (bookingType = '') => {
+               if (bookingTypeSelect) {
+                   bookingTypeSelect.value = bookingType; // Set dropdown
+               }
+               if (bookingModal) {
+                   bookingModal.classList.add('active');
+               }
+           };
+
+           const closeBookingModal = () => {
+               if (bookingModal) {
+                   bookingModal.classList.remove('active');
+               }
+               if (bookingForm) {
+                   bookingForm.reset();
+               }
+           };
+           
+           // Listener untuk tombol "Pesan Sekarang" umum
+           bookingButtons.forEach(button => {
+               button.addEventListener('click', (e) => {
+                   e.preventDefault();
+                   const bookingType = button.getAttribute('data-type') || '';
+                   openBookingModal(bookingType);
+               });
+           });
+           
+           // Listener untuk tombol di halaman camp.html (jika ada)
+           directBookingButtons.forEach(button => {
+               button.addEventListener('click', (e) => {
+                   e.preventDefault();
+                   const bookingType = button.getAttribute('data-type');
+                   openBookingModal(bookingType);
+               });
+           });
+           
+           if(bookingModalClose) bookingModalClose.addEventListener('click', closeBookingModal);
+           bookingModal.addEventListener('click', (e) => { 
+               if (e.target === bookingModal) closeBookingModal(); 
+           });
+           
+           // Logika Submit Form Booking
+           bookingForm.addEventListener('submit', (e) => {
+               e.preventDefault();
+               const formData = new FormData(bookingForm);
+               const data = Object.fromEntries(formData.entries());
+               const backendUrl = 'https://hansstory7.pythonanywhere.com/booking'; // URL Backend
+
+                fetch(backendUrl, { 
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                })
+                .then(response => {
+                     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                     return response.json();
+                 })
+                .then(result => {
+                    console.log('Success:', result);
+                    closeBookingModal();
+                    notificationPopup.textContent = 'Permintaan booking terkirim! Admin akan menghubungi Anda via WhatsApp.';
+                    notificationPopup.style.backgroundColor = ''; // Reset
+                    notificationPopup.classList.add('show');
+                    setTimeout(() => {
+                        notificationPopup.classList.remove('show');
+                    }, 5000); // Tampilkan 5 detik
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                     notificationPopup.textContent = 'Gagal mengirim booking! Coba lagi.';
+                     notificationPopup.style.backgroundColor = 'red'; // Tanda error
+                     notificationPopup.classList.add('show');
+                     setTimeout(() => {
+                         notificationPopup.classList.remove('show');
+                         notificationPopup.style.backgroundColor = ''; // Reset
+                     }, 4000);
+                });
+           });
+      } else { 
+          console.warn("Elemen modal booking tidak ditemukan di halaman ini atau tombol booking tidak ada."); 
+      }
 
     // --- Logika Video Player YouTube ---
      const playButton = document.getElementById('play-button');
      const videoCover = document.getElementById('video-cover');
      const playerFrame = document.getElementById('youtube-player');
      let player; 
-      window.onYouTubeIframeAPIReady = function() { if (playerFrame) player = new YT.Player('youtube-player', {}); }
-      if (playerFrame) { const tag=document.createElement('script'); tag.src="https://www.youtube.com/iframe_api"; const ft=document.getElementsByTagName('script')[0]; ft.parentNode.insertBefore(tag, ft); }
-      if (playButton && videoCover && playerFrame) { /* ... logika event listener video player ... */ }
+      
+      // Muat API YouTube Iframe
+      window.onYouTubeIframeAPIReady = function() { 
+          if (playerFrame) {
+              player = new YT.Player('youtube-player', {
+                  events: {
+                      'onReady': onPlayerReady
+                  }
+              });
+          } 
+      }
+      
+      function onPlayerReady(event) {
+          // Player siap
+      }
+
+      if (playerFrame) { 
+          const tag = document.createElement('script'); 
+          tag.src = "https://www.youtube.com/iframe_api"; 
+          const firstScriptTag = document.getElementsByTagName('script')[0]; 
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag); 
+      }
+      
+      if (playButton && videoCover && playerFrame) { 
+          playButton.addEventListener('click', () => {
+              if (videoCover) videoCover.classList.add('hidden');
+              if (player && typeof player.playVideo === 'function') {
+                  player.playVideo();
+              }
+          });
+      }
 
     // Inisialisasi Feather Icons di akhir
      if (typeof feather !== 'undefined') {
@@ -269,4 +445,3 @@ document.addEventListener('DOMContentLoaded', () => {
      }
 
 });
-
