@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo-theciliwung.png" type="image/png">
+    <title>Majalah - Thé Ciliwung</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script> 
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="logo-theciliwung.png" alt="Logo Thé Ciliwung" class="logo-img">
+            </a>
+            <!-- Navigasi Desktop -->
+            <nav class="main-nav">
+                <a href="index.html#hero">Beranda</a>
+                <a href="tiket.html">Tiket Wisata</a> 
+                <a href="camp.html">Adventure Camp</a>
+                <a href="resto.html">Resto</a>
+                <a href="majalah.html" class="active-link">Majalah</a> <!-- Aktif -->
+                <a href="index.html#kontak">Kontak</a>
+            </nav>
+            <a href="#" class="button button-primary nav-button booking-button">Pesan Sekarang</a>
+            <button id="mobile-menu-button" class="mobile-menu-button">
+                <i data-feather="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+    <div id="mobile-menu" class="mobile-menu">
+        <button id="mobile-menu-close" class="mobile-menu-close">&times;</button>
+        <img src="logo-theciliwung.png" alt="Logo Thé Ciliwung" class="mobile-menu-logo">
+        <a href="index.html#hero">Beranda</a>
+        <a href="tiket.html">Tiket Wisata</a> 
+        <a href="camp.html">Adventure Camp</a>
+        <a href="resto.html">Resto</a> 
+        <a href="majalah.html">Majalah</a> <!-- Tautan Halaman -->
+        <a href="index.html#kontak">Kontak</a>
+    </div>
+
+    <main class="detail-page-main"> <!-- Memberi padding atas dan bawah -->
+        <div class="container">
+             <!-- Konten Galeri Section -->
+             <section id="galeri" class="section" style="padding-top: 2rem; padding-bottom: 2rem;"> <!-- Mengurangi padding section -->
+                <h2 class="section-title animate-on-scroll">Majalah Momen Kami</h2>
+                <div class="galeri-grid animate-on-scroll">
+                    <img class="galeri-item galeri-item-1" src="galeri1.jpg" alt="Momen di Thé Ciliwung 1">
+                    <img class="galeri-item galeri-item-2" src="galeri2.jpg" alt="Momen di Thé Ciliwung 2">
+                    <img class="galeri-item galeri-item-3" src="galeri3.jpg" alt="Momen di Thé Ciliwung 3">
+                    <img class="galeri-item galeri-item-4" src="galeri4.jpg" alt="Momen di Thé Ciliwung 4">
+                    <img class="galeri-item galeri-item-5" src="galeri5.jpg" alt="Momen di Thé Ciliwung 5">
+                    <img class="galeri-item galeri-item-6" src="https://placehold.co/300x200/FDFBF5/6B4F4B?text=TC" alt="Momen di Thé Ciliwung 6">
+                    <img class="galeri-item galeri-item-7" src="https://placehold.co/300x400/D4B996/483434?text=TC" alt="Momen di Thé Ciliwung 7">
+                    <img class="galeri-item galeri-item-8" src="https://placehold.co/300x200/5B8A72/FFFFFF?text=TC" alt="Momen di Thé Ciliwung 8">
+                    <img class="galeri-item galeri-item-9" src="https://placehold.co/300x200/6B4F4B/FFFFFF?text=TC" alt="Momen di Thé Ciliwung 9">
+                    <img class="galeri-item galeri-item-10" src="https://placehold.co/600x400/D4B996/483434?text=TC" alt="Momen di Thé Ciliwung 10">
+                    <img class="galeri-item galeri-item-11" src="https://placehold.co/300x200/FDFBF5/6B4F4B?text=TC" alt="Momen di Thé Ciliwung 11">
+                    <img class="galeri-item galeri-item-12" src="https://placehold.co/300x200/5B8A72/FFFFFF?text=TC" alt="Momen di Thé Ciliwung 12">
+                    <img class="galeri-item galeri-item-13" src="https://placehold.co/300x200/D4B996/483434?text=TC" alt="Momen di Thé Ciliwung 13">
+                    <img class="galeri-item galeri-item-14" src="https://placehold.co/300x200/6B4F4B/FFFFFF?text=TC" alt="Momen di Thé Ciliwung 14">
+                    <img class="galeri-item galeri-item-15" src="https://placehold.co/300x200/FDFBF5/6B4F4B?text=TC" alt="Momen di Thé Ciliwung 15">
+                    <img class="galeri-item galeri-item-16" src="https://placehold.co/300x200/5B8A72/FFFFFF?text=TC" alt="Momen di Thé Ciliwung 16">
+                </div>
+                 <div class="detail-buttons" style="margin-top: 3rem;">
+                    <a href="index.html" class="button button-secondary">Kembali ke Beranda</a>
+                 </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="kontak" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Kolom Alamat -->
+                <div class="footer-col">
+                    <img src="logo-theciliwung.png" alt="Logo Thé Ciliwung" class="logo-img-footer">
+                    <p>Jl. Nasional No.11, Tugu Utara, Kec. Cisarua, Kabupaten Bogor, Jawa Barat 16750</p>
+                    <a href="https://maps.app.goo.gl/SwxxHF7ja97sA2Sd8" target="_blank" class="map-link">Buka di Google Maps</a>
+                </div>
+                <!-- Kolom Hubungi Kami -->
+                <div class="footer-col">
+                    <h3>Hubungi Kami</h3>
+                    <div class="contact-links">
+                        <a href="https://ig.me/m/theciliwung" target="_blank" class="contact-link-item">
+                           <i data-feather="instagram"></i>
+                           <span>Instagram</span>
+                        </a>
+                        <a href="https://wa.me/6287737040708" target="_blank" class="contact-link-item">
+                           <i data-feather="message-circle"></i>
+                           <span>WhatsApp Admin 1</span>
+                        </a>
+                        <a href="https://wa.me/62819190705" target="_blank" class="contact-link-item">
+                           <i data-feather="message-circle"></i>
+                           <span>WhatsApp Admin 2</span>
+                        </a>
+                    </div>
+                </div>
+                 <!-- Kolom Ikuti Kami -->
+                <div class="footer-col">
+                    <h3>Ikuti Kami</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/theciliwung" target="_blank" class="instagram-icon" aria-label="Instagram">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@theciliwung" target="_blank" class="tiktok-icon" aria-label="TikTok">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">  <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/></svg>
+                        </a>
+                        <a href="https://www.threads.net/@theciliwung" target="_blank" class="threads-icon" aria-label="Threads">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-threads" viewBox="0 0 16 16">  <path d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 13.987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Thé Ciliwung. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Navigation (Mobile Only) -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav-link">
+            <i data-feather="home"></i>
+            <span>Beranda</span>
+        </a>
+        <a href="tiket.html" class="bottom-nav-link">
+             <i data-feather="map-pin"></i> 
+            <span>Wisata</span>
+        </a>
+        <a href="camp.html" class="bottom-nav-link">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tent"><path d="M19 20L12 4L5 20H19Z M12 4L12 12"/></svg>
+            <span>Adv Camp</span> 
+        </a>
+        <a href="resto.html" class="bottom-nav-link">
+            <i data-feather="coffee"></i>
+            <span>Resto</span>
+        </a>
+        <a href="majalah.html" class="bottom-nav-link active"> <!-- Aktif -->
+            <i data-feather="book-open"></i> 
+            <span>Majalah</span>
+        </a>
+    </nav>
+
+    <!-- Modal Booking (Disertakan untuk tombol 'Pesan Sekarang' di header) -->
+    <div id="booking-modal" class="message-modal">
+        <div class="message-modal-content">
+            <span id="booking-modal-close" class="message-modal-close">&times;</span>
+            <h2 class="form-title">Formulir Pemesanan</h2>
+            <form id="booking-form" class="message-form">
+                <!-- ... (Formulir booking lengkap disalin dari index.html) ... -->
+                 <div class="form-group">
+                    <label for="booking-type">Pilihan Akomodasi</label>
+                    <select id="booking-type" name="type" required>
+                        <option value="">-- Pilih Akomodasi --</option>
+                        <option value="Tenda 2 Orang">Camping: Tenda 2 Orang</option>
+                        <option value="Tenda 4 Orang">Camping: Tenda 4 Orang</option>
+                        <option value="Tenda 6 Orang">Camping: Tenda 6 Orang</option>
+                        <option value="Paket Camping Group">Camping: Paket Group</option>
+                        <option value="Extra Bed Camping">Camping: Extra Bed</option>
+                        <option value="Glamping 360° View">Glamping: 360° View</option>
+                        <option value="Rumah Sarang Manyar">Glamping: Rumah Sarang Manyar</option>
+                        <option value="Glamping Connecting">Glamping: Connecting</option>
+                        <option value="Manyar Connecting">Glamping: Manyar Connecting</option>
+                        <option value="Extra Bed Glamping">Glamping: Extra Bed</option>
+                    </select>
+                </div>
+                <div class="form-group date-group">
+                    <div>
+                        <label for="check-in">Tanggal Check-in</label>
+                        <input type="date" id="check-in" name="check_in" required>
+                    </div>
+                    <div>
+                        <label for="check-out">Tanggal Check-out</label>
+                        <input type="date" id="check-out" name="check_out" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="booking-name">Nama Lengkap</label>
+                    <input type="text" id="booking-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="booking-email">Email</label>
+                    <input type="email" id="booking-email" name="email" required>
+                </div>
+                 <div class="form-group">
+                    <label for="booking-phone">Nomor WhatsApp</label>
+                    <input type="tel" id="booking-phone" name="phone" required>
+                </div>
+                <button type="submit" class="button button-primary">Kirim Permintaan Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notifikasi Popup -->
+    <div id="notification-popup" class="notification-popup">Pesan Anda telah terkirim!</div>
+
+    <!-- Tautkan file script.js eksternal -->
+    <script src="script.js"></script>
+    
+    <!-- Script khusus untuk halaman ini (animasi & menu mobile) -->
+    <script>
+        feather.replace(); // Inisialisasi ikon
+
+        // --- Animasi Scroll Sederhana ---
+        const scrollElementsMajalah = document.querySelectorAll('.animate-on-scroll');
+        if ('IntersectionObserver' in window) {
+            const observerMajalah = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            scrollElementsMajalah.forEach(el => observerMajalah.observe(el));
+        } else {
+            scrollElementsMajalah.forEach(el => el.classList.add('is-visible'));
+        }
+
+         // --- Logika Menu Mobile (diambil dari script.js) ---
+         // Diperlukan agar menu mobile berfungsi di halaman ini
+        const mobileMenuButtonMajalah = document.getElementById('mobile-menu-button');
+        const mobileMenuMajalah = document.getElementById('mobile-menu');
+        const mobileMenuCloseMajalah = document.getElementById('mobile-menu-close');
+        const mobileMenuOverlayMajalah = document.getElementById('mobile-menu-overlay');
+        const mobileMenuLinksMajalah = mobileMenuMajalah ? mobileMenuMajalah.querySelectorAll('a') : [];
+
+        const openMobileMenuMajalah = () => {
+            if(mobileMenuMajalah) mobileMenuMajalah.classList.add('active');
+            if(mobileMenuOverlayMajalah) mobileMenuOverlayMajalah.classList.add('active');
+        };
+
+        const closeMobileMenuMajalah = () => {
+            if(mobileMenuMajalah) mobileMenuMajalah.classList.remove('active');
+            if(mobileMenuOverlayMajalah) mobileMenuOverlayMajalah.classList.remove('active');
+        };
+
+        if (mobileMenuButtonMajalah && mobileMenuMajalah && mobileMenuCloseMajalah && mobileMenuOverlayMajalah) {
+            mobileMenuButtonMajalah.addEventListener('click', openMobileMenuMajalah);
+            mobileMenuCloseMajalah.addEventListener('click', closeMobileMenuMajalah);
+            mobileMenuOverlayMajalah.addEventListener('click', closeMobileMenuMajalah);
+            mobileMenuLinksMajalah.forEach(link => {
+                // Jangan tutup menu jika mengklik link halaman saat ini
+                if (link.getAttribute('href') !== 'majalah.html') {
+                    link.addEventListener('click', closeMobileMenuMajalah); 
+                }
+            });
+        }
+    </script>
+</body>
+</html>

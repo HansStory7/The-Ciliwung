@@ -1,6 +1,12 @@
 // SELURUH LOGIKA JAVASCRIPT LENGKAP
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Definisi Variabel Global (di dalam DOMContentLoaded) ---
+    // Pindahkan definisi ini ke atas agar bisa dipakai oleh fungsi lain
+    const headerHeight = document.querySelector('.header')?.offsetHeight || 70;
+    const notificationPopup = document.getElementById('notification-popup');
+
+
     // --- Logika untuk Menu Mobile ---
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -100,38 +106,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // --- Logika untuk Navigasi Aktif saat Scroll (Header dan Bottom Nav) ---
-    const sections = document.querySelectorAll('main section[id]'); 
+    const sections = document.querySelectorAll('main section[id], footer[id]'); // PERBARUI: Sertakan footer
     const headerNavLinks = document.querySelectorAll('.main-nav a'); // Hanya nav header desktop
     const bottomNavLinks = document.querySelectorAll('.bottom-nav-link');
-    const headerHeight = document.querySelector('.header')?.offsetHeight || 70; 
+    // headerHeight sudah didefinisikan di atas
 
     const activateLinks = () => {
         let currentSectionId = '';
         const scrollPosition = window.pageYOffset;
-        const viewportCenter = window.innerHeight / 2;
+        // const viewportCenter = window.innerHeight / 2; // Tidak dipakai lagi
         const currentPath = window.location.pathname.split('/').pop() || 'index.html'; // Dapatkan nama file saat ini
 
         // Tentukan section aktif berdasarkan scroll (HANYA jika di index.html)
         if (currentPath === 'index.html' || currentPath === '') {
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - headerHeight - 10; // Beri sedikit offset tambahan
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
+            
+            // --- [PERBAIKAN] Logika Scroll-Spy yang Disederhanakan ---
+            currentSectionId = ''; // Mulai kosong
+            const scrollThreshold = scrollPosition + headerHeight + 20; // Titik aktivasi (posisi scroll + tinggi header + buffer 20px)
 
-                 if ((sectionTop < scrollPosition + viewportCenter / 2 && sectionTop + sectionHeight > scrollPosition + viewportCenter / 2) || 
-                     (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight))
-                 {
-                    currentSectionId = sectionId;
-                 }
-            });
-             
-             if (!currentSectionId && scrollPosition < (sections[0]?.offsetTop - headerHeight - 10 || 300)) {
-                  currentSectionId = 'hero'; 
-             }
-             else if (!currentSectionId && (window.innerHeight + scrollPosition) >= document.body.offsetHeight - 100) {
-                 const kontakSection = document.getElementById('kontak');
-                 if(kontakSection) currentSectionId = 'kontak';
-             }
+            // Iterasi dari BAWAH ke ATAS untuk menemukan section terakhir yang dilewati
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = sections[i];
+                if (section.offsetTop <= scrollThreshold) {
+                    currentSectionId = section.getAttribute('id');
+                    break; // Ditemukan section teratas yang terlihat
+                }
+            }
+            
+            // Handle kasus jika di paling atas (sebelum section pertama)
+            if (scrollPosition < (sections[0]?.offsetTop - headerHeight - 20 || 300)) {
+                 currentSectionId = 'hero';
+            }
+            
+            // Handle kasus di paling bawah (footer)
+            if ((window.innerHeight + scrollPosition) >= document.body.offsetHeight - 100) {
+                 // Cek ID footer, default ke 'kontak' jika ada
+                 const footerSection = document.getElementById('kontak');
+                 if(footerSection) currentSectionId = 'kontak';
+            }
+            // --- [AKHIR PERBAIKAN] ---
 
         } else {
              // Jika bukan di index, tentukan ID aktif berdasarkan file
@@ -151,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Logika aktivasi untuk header
             if ((currentPath === 'index.html' || currentPath === '') && linkTargetHash && linkTargetHash === currentSectionId) {
                  link.classList.add('active-link'); // Scroll di index
-            } else if ((currentPath === 'index.html' || currentPath === '') && !linkTargetHash && currentSectionId === 'hero' && link.textContent === 'Beranda') {
+            } else if ((currentPath === 'index.html' || currentPath === '') && linkTargetHash === 'hero' && currentSectionId === 'hero' && link.textContent === 'Beranda') {
                  link.classList.add('active-link'); // Beranda di index
             }
              else if (linkTargetFile === 'tiket.html' && currentSectionId === 'tiket') {
@@ -164,6 +177,10 @@ document.addEventListener('DOMContentLoaded', () => {
                  link.classList.add('active-link');
              }
              else if (linkTargetHash === 'tiket' && currentSectionId === 'tiket' && link.textContent === 'Tiket Wisata') {
+                 link.classList.add('active-link');
+             }
+             // Tambahkan link aktif untuk kontak
+             else if (linkTargetHash === 'kontak' && currentSectionId === 'kontak') {
                  link.classList.add('active-link');
              }
         });
@@ -191,6 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
                  } else if (linkTargetHash === 'galeri' && currentSectionId === 'galeri' && linkText === 'Majalah') {
                       link.classList.add('active');
                  } else if (linkTargetHash === 'resto' && currentSectionId === 'resto' && linkText === 'Resto') {
+                      link.classList.add('active');
+                 } else if (linkTargetHash === 'tiket' && currentSectionId === 'tiket' && linkText === 'Wisata') {
                       link.classList.add('active');
                  }
              }
@@ -286,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
      const messageModal = document.getElementById('message-modal');
      const messageModalClose = messageModal ? messageModal.querySelector('#message-modal-close') : null; 
      const messageForm = document.getElementById('message-form');
-     const notificationPopup = document.getElementById('notification-popup');
+     // notificationPopup sudah didefinisikan di atas
       
       if (floatingButton && messageModal && messageModalClose && messageForm && notificationPopup) { 
           floatingButton.addEventListener('click', () => messageModal.classList.add('active'));
@@ -438,6 +457,40 @@ document.addEventListener('DOMContentLoaded', () => {
               }
           });
       }
+
+    // --- [SOLUSI] Logika untuk Scroll ke Hash Saat Pindah Halaman ---
+    // Cek jika URL memiliki hash (cth: index.html#camping)
+    // Ini harus dijalankan setelah semua logika lain didefinisikan
+    if (window.location.hash) {
+        const hash = window.location.hash; // cth: #camping
+        
+        // Beri sedikit waktu agar semua gambar (terutama slideshow) dimuat
+        // dan layout stabil sebelum mencoba scroll.
+        setTimeout(() => {
+            try {
+                const targetElement = document.querySelector(hash);
+                if (targetElement) {
+                    // Dapatkan tinggi header (sudah didefinisikan di atas)
+                    // Hitung posisi scroll
+                    const elementPosition = targetElement.offsetTop;
+                    const offsetPosition = elementPosition - headerHeight - 10; // -10px untuk spasi
+                    
+                    // Lakukan scroll manual
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth' 
+                    });
+                    
+                    // Paksa update link aktif setelah scroll
+                    activateLinks(); 
+                }
+            } catch (e) {
+                console.warn("Gagal melakukan auto-scroll ke hash:", e);
+            }
+        }, 500); // 500ms delay untuk memastikan layout stabil
+    }
+    // --- [AKHIR SOLUSI] ---
+
 
     // Inisialisasi Feather Icons di akhir
      if (typeof feather !== 'undefined') {

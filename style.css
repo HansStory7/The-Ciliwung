@@ -1528,7 +1528,7 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
         font-size: 4.5rem;
     }
     .kamar-grid {
-        /* Karena ada 6 item, 2 kolom akan terlihat bagus */
+        /* Secara default 2 kolom di tablet */
         grid-template-columns: repeat(2, 1fr);
     }
     .galeri-grid {
@@ -1568,12 +1568,12 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
         padding: 3rem;
     }
 
-    /* Penyesuaian dari camp.html untuk 5 item glamping (tablet) */
-    #glamping .kamar-grid {
+    /* HAPUS ATURAN KHUSUS UNTUK #glamping agar mengikuti aturan default .kamar-grid */
+    /* #glamping .kamar-grid {
         max-width: 900px; 
         margin-left: auto;
         margin-right: auto;
-    }
+    } */
 
     body {
         padding-bottom: 0; /* Hapus padding bawah di desktop */
@@ -1606,18 +1606,17 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 }
 @media (min-width: 1024px) {
     .kamar-grid {
-        /* Dengan 6 item, 3 kolom adalah yang terbaik */
+        /* Secara default 3 kolom di desktop */
         grid-template-columns: repeat(3, 1fr);
     }
     
-    /* Penyesuaian dari camp.html untuk 5 item glamping (desktop) */
-    /* Override grid 3 kolom khusus untuk #glamping (karena 5 item) */
-    #glamping .kamar-grid {
+    /* HAPUS ATURAN KHUSUS UNTUK #glamping agar mengikuti aturan default .kamar-grid */
+    /* #glamping .kamar-grid {
         grid-template-columns: repeat(2, 1fr);
         max-width: 900px; 
         margin-left: auto;
         margin-right: auto;
-    }
+    } */
 
     .menu-detail-grid {
         grid-template-columns: repeat(2, 1fr);

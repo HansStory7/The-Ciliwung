@@ -19,14 +19,13 @@
             </a>
             <nav class="main-nav">
                  <a href="index.html#hero">Beranda</a>
-                 <a href="tiket.html">Wisata</a> 
-                 <a href="index.html#camping">Adventure Camp</a>
-                 <a href="index.html#glamping">Glamping</a>
-                 <a href="index.html#resto">Resto</a>
-                 <a href="index.html#galeri">Majalah</a> 
+                 <a href="tiket.html" class="active-link">Wisata</a> <!-- Aktif -->
+                 <a href="camp.html">Adventure Camp</a> <!-- Diubah ke camp.html -->
+                 <a href="resto.html">Resto</a> <!-- Diubah ke resto.html -->
+                 <a href="majalah.html">Majalah</a> <!-- Diubah ke majalah.html -->
                  <a href="index.html#kontak">Kontak</a>
             </nav>
-            <a href="index.html" class="button button-primary nav-button booking-button">Pesan Sekarang</a>
+            <a href="#" class="button button-primary nav-button booking-button">Pesan Sekarang</a> <!-- Menggunakan class booking-button -->
              <button id="mobile-menu-button" class="mobile-menu-button">
                  <i data-feather="menu"></i>
             </button>
@@ -39,10 +38,9 @@
          <img src="logo-theciliwung.png" alt="Logo Thé Ciliwung" class="mobile-menu-logo">
          <a href="index.html#hero">Beranda</a>
          <a href="tiket.html">Wisata</a>
-         <a href="index.html#camping">Adventure Camp</a>
-         <a href="index.html#glamping">Glamping</a>
-         <a href="index.html#resto">Resto</a>
-         <a href="index.html#galeri">Majalah</a>
+         <a href="camp.html">Adventure Camp</a> <!-- Diubah ke camp.html -->
+         <a href="resto.html">Resto</a> <!-- Diubah ke resto.html -->
+         <a href="majalah.html">Majalah</a> <!-- Diubah ke majalah.html -->
          <a href="index.html#kontak">Kontak</a>
      </div>
 
@@ -167,7 +165,7 @@
 
      <!-- Bottom Navigation (Mobile Only) -->
      <nav class="bottom-nav">
-         <a href="index.html#hero" class="bottom-nav-link"> <!-- Arahkan ke index.html -->
+         <a href="index.html" class="bottom-nav-link"> <!-- Arahkan ke index.html -->
              <i data-feather="home"></i>
              <span>Beranda</span>
          </a>
@@ -175,20 +173,72 @@
               <i data-feather="map-pin"></i> <!-- Ikon untuk Wisata -->
              <span>Wisata</span>
          </a>
-         <a href="index.html#camping" class="bottom-nav-link"> <!-- Arahkan ke index.html -->
+         <a href="camp.html" class="bottom-nav-link"> <!-- Arahkan ke camp.html -->
               <!-- Ikon Tenda -->
              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tent"><path d="M19 20L12 4L5 20H19Z M12 4L12 12"/></svg>
              <span>Adv Camp</span> <!-- Disingkat agar muat -->
          </a>
-         <a href="index.html#resto" class="bottom-nav-link"> <!-- Arahkan ke index.html -->
+         <a href="resto.html" class="bottom-nav-link"> <!-- Arahkan ke resto.html -->
              <i data-feather="coffee"></i>
              <span>Resto</span>
          </a>
-         <a href="index.html#galeri" class="bottom-nav-link"> <!-- Arahkan ke index.html -->
+         <a href="majalah.html" class="bottom-nav-link"> <!-- Arahkan ke majalah.html -->
              <i data-feather="book-open"></i> <!-- Ikon untuk Majalah/Galeri -->
              <span>Majalah</span>
          </a>
      </nav>
+    
+    <!-- Modal Booking (Disertakan untuk tombol 'Pesan Sekarang' di header) -->
+    <div id="booking-modal" class="message-modal">
+        <div class="message-modal-content">
+            <span id="booking-modal-close" class="message-modal-close">&times;</span>
+            <h2 class="form-title">Formulir Pemesanan</h2>
+            <form id="booking-form" class="message-form">
+                 <div class="form-group">
+                    <label for="booking-type">Pilihan Akomodasi</label>
+                    <select id="booking-type" name="type" required>
+                        <option value="">-- Pilih Akomodasi --</option>
+                        <option value="Tenda 2 Orang">Camping: Tenda 2 Orang</option>
+                        <option value="Tenda 4 Orang">Camping: Tenda 4 Orang</option>
+                        <option value="Tenda 6 Orang">Camping: Tenda 6 Orang</option>
+                        <option value="Paket Camping Group">Camping: Paket Group</option>
+                        <option value="Extra Bed Camping">Camping: Extra Bed</option>
+                        <option value="Glamping 360° View">Glamping: 360° View</option>
+                        <option value="Rumah Sarang Manyar">Glamping: Rumah Sarang Manyar</option>
+                        <option value="Glamping Connecting">Glamping: Connecting</option>
+                        <option value="Manyar Connecting">Glamping: Manyar Connecting</option>
+                        <option value="Extra Bed Glamping">Glamping: Extra Bed</option>
+                    </select>
+                </div>
+                <div class="form-group date-group">
+                    <div>
+                        <label for="check-in">Tanggal Check-in</label>
+                        <input type="date" id="check-in" name="check_in" required>
+                    </div>
+                    <div>
+                        <label for="check-out">Tanggal Check-out</label>
+                        <input type="date" id="check-out" name="check_out" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="booking-name">Nama Lengkap</label>
+                    <input type="text" id="booking-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="booking-email">Email</label>
+                    <input type="email" id="booking-email" name="email" required>
+                </div>
+                 <div class="form-group">
+                    <label for="booking-phone">Nomor WhatsApp</label>
+                    <input type="tel" id="booking-phone" name="phone" required>
+                </div>
+                <button type="submit" class="button button-primary">Kirim Permintaan Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notifikasi Popup -->
+    <div id="notification-popup" class="notification-popup">Pesan Anda telah terkirim!</div>
 
      <script src="script.js"></script> <!-- Muat skrip utama jika diperlukan (misal untuk menu hamburger) -->
      <script>
