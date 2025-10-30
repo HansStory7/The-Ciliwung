@@ -2,7 +2,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Definisi Variabel Global (di dalam DOMContentLoaded) ---
-    // Pindahkan definisi ini ke atas agar bisa dipakai oleh fungsi lain
     const headerHeight = document.querySelector('.header')?.offsetHeight || 70;
     const notificationPopup = document.getElementById('notification-popup');
 
@@ -242,9 +241,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <ol style="list-style-type: decimal; padding-left: 20px; margin-left: 1rem;">
                     <li>Pilih akomodasi (Camping atau Glamping) yang Anda inginkan.</li>
                     <li>Klik tombol "Pesan Sekarang" atau "Lihat Detail" untuk informasi lebih lanjut.</li>
-                    <li>Anda dapat mengisi formulir "Kirim Permintaan Booking" atau menghubungi Admin WhatsApp kami.</li>
-                    <li>Tim kami akan mengonfirmasi ketersediaan dan total biaya melalui WhatsApp.</li>
-                    <li>Pembayaran dapat dilakukan melalui transfer bank.</li>
+                    <li>Anda akan diarahkan ke formulir online (Microsoft Forms) atau ke Admin WhatsApp kami.</li>
+                    <li>Isi formulir atau hubungi tim kami untuk mengonfirmasi ketersediaan dan total biaya.</li>
+                    <li>Pembayaran dapat dilakukan melalui transfer bank setelah konfirmasi diterima.</li>
                 </ol>
                 <p style="margin-top: 1rem;"><strong>Check-in & Check-out:</strong></p>
                 <ul style="list-style-type: disc; padding-left: 20px; margin-left: 1rem;">
@@ -329,97 +328,10 @@ document.addEventListener('DOMContentLoaded', () => {
           console.warn("Elemen modal pesan tidak ditemukan di halaman ini."); 
       }
 
-     // --- Logika Modal Booking (GLOBAL) ---
-     const bookingModal = document.getElementById('booking-modal');
-     const bookingModalClose = bookingModal ? bookingModal.querySelector('#booking-modal-close') : null; 
-     const bookingButtons = document.querySelectorAll('.booking-button'); // Tombol umum
-     const directBookingButtons = document.querySelectorAll('.booking-button-direct'); // Tombol di halaman camp.html
-     const bookingForm = document.getElementById('booking-form');
-     const bookingTypeSelect = document.getElementById('booking-type');
-      
-      if (bookingModal && bookingModalClose && (bookingButtons.length > 0 || directBookingButtons.length > 0) && bookingForm && bookingTypeSelect && notificationPopup) { 
-           
-           const openBookingModal = (bookingType = '') => {
-               if (bookingTypeSelect) {
-                   bookingTypeSelect.value = bookingType; // Set dropdown
-               }
-               if (bookingModal) {
-                   bookingModal.classList.add('active');
-               }
-           };
+     // --- Logika Modal Booking (DIHAPUS KARENA PINDAH KE MS FORMS) ---
+     // Semua kode yang berhubungan dengan 'booking-modal', 'booking-form', dll.
+     // telah dihapus di versi sebelumnya.
 
-           const closeBookingModal = () => {
-               if (bookingModal) {
-                   bookingModal.classList.remove('active');
-               }
-               if (bookingForm) {
-                   bookingForm.reset();
-               }
-           };
-           
-           // Listener untuk tombol "Pesan Sekarang" umum
-           bookingButtons.forEach(button => {
-               button.addEventListener('click', (e) => {
-                   e.preventDefault();
-                   const bookingType = button.getAttribute('data-type') || '';
-                   openBookingModal(bookingType);
-               });
-           });
-           
-           // Listener untuk tombol di halaman camp.html (jika ada)
-           directBookingButtons.forEach(button => {
-               button.addEventListener('click', (e) => {
-                   e.preventDefault();
-                   const bookingType = button.getAttribute('data-type');
-                   openBookingModal(bookingType);
-               });
-           });
-           
-           if(bookingModalClose) bookingModalClose.addEventListener('click', closeBookingModal);
-           bookingModal.addEventListener('click', (e) => { 
-               if (e.target === bookingModal) closeBookingModal(); 
-           });
-           
-           // Logika Submit Form Booking
-           bookingForm.addEventListener('submit', (e) => {
-               e.preventDefault();
-               const formData = new FormData(bookingForm);
-               const data = Object.fromEntries(formData.entries());
-               const backendUrl = 'https://hansstory7.pythonanywhere.com/booking'; // URL Backend
-
-                fetch(backendUrl, { 
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data),
-                })
-                .then(response => {
-                     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                     return response.json();
-                 })
-                .then(result => {
-                    console.log('Success:', result);
-                    closeBookingModal();
-                    notificationPopup.textContent = 'Permintaan booking terkirim! Admin akan menghubungi Anda via WhatsApp.';
-                    notificationPopup.style.backgroundColor = ''; // Reset
-                    notificationPopup.classList.add('show');
-                    setTimeout(() => {
-                        notificationPopup.classList.remove('show');
-                    }, 5000); // Tampilkan 5 detik
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                     notificationPopup.textContent = 'Gagal mengirim booking! Coba lagi.';
-                     notificationPopup.style.backgroundColor = 'red'; // Tanda error
-                     notificationPopup.classList.add('show');
-                     setTimeout(() => {
-                         notificationPopup.classList.remove('show');
-                         notificationPopup.style.backgroundColor = ''; // Reset
-                     }, 4000);
-                });
-           });
-      } else { 
-          console.warn("Elemen modal booking tidak ditemukan di halaman ini atau tombol booking tidak ada."); 
-      }
 
     // --- Logika Video Player YouTube ---
      const playButton = document.getElementById('play-button');
@@ -459,29 +371,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
     // --- [SOLUSI] Logika untuk Scroll ke Hash Saat Pindah Halaman ---
-    // Cek jika URL memiliki hash (cth: index.html#camping)
-    // Ini harus dijalankan setelah semua logika lain didefinisikan
     if (window.location.hash) {
         const hash = window.location.hash; // cth: #camping
         
-        // Beri sedikit waktu agar semua gambar (terutama slideshow) dimuat
-        // dan layout stabil sebelum mencoba scroll.
         setTimeout(() => {
             try {
                 const targetElement = document.querySelector(hash);
                 if (targetElement) {
-                    // Dapatkan tinggi header (sudah didefinisikan di atas)
-                    // Hitung posisi scroll
                     const elementPosition = targetElement.offsetTop;
                     const offsetPosition = elementPosition - headerHeight - 10; // -10px untuk spasi
                     
-                    // Lakukan scroll manual
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: 'smooth' 
                     });
                     
-                    // Paksa update link aktif setelah scroll
                     activateLinks(); 
                 }
             } catch (e) {
@@ -489,7 +393,100 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 500); // 500ms delay untuk memastikan layout stabil
     }
-    // --- [AKHIR SOLUSI] ---
+
+    // --- [UPDATE] Logika Musik Latar Belakang (Dengan Penyimpanan Waktu) ---
+    try {
+        // 1. Buat elemen audio
+        const audioPlayer = new Audio('background_music.mp3'); // Pastikan file ini ada di server
+        audioPlayer.loop = true;
+        audioPlayer.volume = 0.3;
+
+        // 2. Buat tombol Play/Pause
+        const musicButton = document.createElement('button');
+        musicButton.id = 'music-toggle-button';
+        musicButton.setAttribute('aria-label', 'Putar/Jeda Musik');
+        document.body.appendChild(musicButton);
+
+        // 3. [UPDATE] Simpan status dan WAKTU saat meninggalkan halaman
+        window.addEventListener('beforeunload', () => {
+            if (audioPlayer) {
+                sessionStorage.setItem('musicCurrentTime', audioPlayer.currentTime);
+                sessionStorage.setItem('musicIsPlaying', !audioPlayer.paused);
+            }
+        });
+
+        // 4. [UPDATE] Ambil status dan WAKTU saat halaman dimuat
+        const savedTime = parseFloat(sessionStorage.getItem('musicCurrentTime')) || 0;
+        let isPlaying = sessionStorage.getItem('musicIsPlaying') === 'true'; // Default ke true jika user ingin
+        audioPlayer.currentTime = savedTime; // Atur audio ke waktu yang disimpan
+
+        let userHasInteracted = false;
+
+        // Fungsi untuk update tombol
+        const updateButtonState = () => {
+            if (isPlaying) {
+                musicButton.classList.add('playing');
+                musicButton.innerHTML = `<i data-feather="volume-2"></i>`; // Ikon "Playing"
+            } else {
+                musicButton.classList.remove('playing');
+                musicButton.innerHTML = `<i data-feather="volume-x"></i>`; // Ikon "Muted"
+            }
+            if (typeof feather !== 'undefined') {
+                 feather.replace(); // Ganti ikonnya
+            }
+        };
+        
+        // Panggil updateButtonState() segera untuk mengatur ikon yang benar saat memuat
+        updateButtonState();
+
+        // Fungsi untuk memutar musik
+        const playMusic = () => {
+            audioPlayer.play().catch(e => console.warn("Autoplay ditolak oleh browser."));
+            isPlaying = true;
+            sessionStorage.setItem('musicIsPlaying', 'true'); // Simpan status
+            updateButtonState();
+        };
+
+        // Fungsi untuk menjeda musik
+        const pauseMusic = () => {
+            audioPlayer.pause();
+            isPlaying = false;
+            sessionStorage.setItem('musicIsPlaying', 'false'); // Simpan status
+            updateButtonState();
+        };
+
+        // 5. Coba putar berdasarkan interaksi pengguna pertama kali
+        const playOnFirstInteraction = () => {
+            if (!userHasInteracted) {
+                userHasInteracted = true;
+                if (isPlaying) { // Hanya putar jika status terakhir adalah "playing"
+                    playMusic();
+                }
+                // Hapus listener setelah interaksi pertama
+                document.removeEventListener('click', playOnFirstInteraction, true);
+                document.removeEventListener('keydown', playOnFirstInteraction, true);
+            }
+        };
+
+        // Tangkap *semua* klik, bahkan yang di-stop (capture phase)
+        document.addEventListener('click', playOnFirstInteraction, true);
+        document.addEventListener('keydown', playOnFirstInteraction, true);
+
+        // 6. Event listener pada tombol
+        musicButton.addEventListener('click', (e) => {
+            e.stopPropagation(); // Hentikan event agar tidak memicu playOnFirstInteraction lagi
+            userHasInteracted = true; // Klik tombol dihitung sebagai interaksi
+            if (isPlaying) {
+                pauseMusic();
+            } else {
+                playMusic();
+            }
+        });
+
+    } catch (e) {
+        console.error("Gagal memuat pemutar musik:", e);
+    }
+    // --- [AKHIR] Logika Musik Latar Belakang ---
 
 
     // Inisialisasi Feather Icons di akhir
@@ -498,3 +495,4 @@ document.addEventListener('DOMContentLoaded', () => {
      }
 
 });
+

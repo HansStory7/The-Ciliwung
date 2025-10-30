@@ -25,7 +25,8 @@
                  <a href="majalah.html">Majalah</a> <!-- Diubah ke majalah.html -->
                  <a href="index.html#kontak">Kontak</a>
             </nav>
-            <a href="#" class="button button-primary nav-button booking-button">Hubungi Kami</a> <!-- Menggunakan class booking-button -->
+            <!-- DIUBAH: Mengarah ke MS Forms -->
+            <a href="https://forms.office.com/r/UiJExHcDnX" target="_blank" class="button button-primary nav-button">Pesan Sekarang</a>
              <button id="mobile-menu-button" class="mobile-menu-button">
                  <i data-feather="menu"></i>
             </button>
@@ -114,8 +115,8 @@
                             <div class="kamar-fasilitas">
                                 <strong>Kapasitas:</strong> 1 Orang
                             </div>
-                            <!-- Tombol pesan modal booking langsung -->
-                             <button class="button button-secondary booking-button-direct" data-type="Extra Bed Camping">Rp 165.000/buah</button>
+                            <!-- DIUBAH: Tombol pesan sekarang mengarah ke MS Forms -->
+                             <a href="https://forms.office.com/r/UiJExHcDnX" target="_blank" class="button button-secondary">Rp 165.000/buah</a>
                         </div>
                     </div>
                     <!-- Add-on Services -->
@@ -230,7 +231,8 @@
                                 <strong>Weekday:</strong> Rp 352.000<br>
                                 <strong>Weekend:</strong> Rp 440.000
                             </div>
-                            <button class="button button-secondary booking-button-direct" data-type="Extra Bed Glamping">Pesan Sekarang</button>
+                            <!-- DIUBAH: Tombol pesan sekarang mengarah ke MS Forms -->
+                            <a href="https://forms.office.com/r/UiJExHcDnX" target="_blank" class="button button-secondary">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div> <!-- Grid kedua ditutup -->
@@ -307,59 +309,15 @@
              <span>Majalah</span>
          </a>
      </nav>
-      <!-- Modal Booking (Diperlukan jika tombol pesan langsung ada di halaman ini) -->
-      <div id="booking-modal" class="message-modal">
-          <div class="message-modal-content">
-              <span id="booking-modal-close" class="message-modal-close">&times;</span>
-              <h2 class="form-title">Formulir Pemesanan</h2>
-              <form id="booking-form" class="message-form">
-                  <div class="form-group">
-                      <label for="booking-type">Pilihan Akomodasi</label>
-                      <select id="booking-type" name="type" required>
-                          <option value="">-- Pilih Akomodasi --</option>
-                          <option value="Tenda 2 Orang">Camping: Tenda 2 Orang</option>
-                          <option value="Tenda 4 Orang">Camping: Tenda 4 Orang</option>
-                          <option value="Tenda 6 Orang">Camping: Tenda 6 Orang</option>
-                          <option value="Paket Camping Group">Camping: Paket Group</option>
-                          <option value="Extra Bed Camping">Camping: Extra Bed</option>
-                          <!-- OPSI MODAL DIPERBARUI -->
-                          <option value="Glamping View 360°">Glamping: 360° View</option>
-                          <option value="Glamping Sarang Manyar">Glamping: Sarang Manyar</option>
-                          <option value="Glamping 360° view Connecting">Glamping: 360° view Connecting</option> <!-- Nama Diperbaiki -->
-                          <option value="Rumah Sarang Manyar Connecting">Glamping: Rumah Sarang Manyar Connecting</option> <!-- Nama Diperbaiki -->
-                          <option value="Extra Bed Glamping">Glamping: Extra Bed</option>
-                      </select>
-                  </div>
-                  <div class="form-group date-group">
-                      <div>
-                          <label for="check-in">Tanggal Check-in</label>
-                          <input type="date" id="check-in" name="check_in" required>
-                      </div>
-                      <div>
-                          <label for="check-out">Tanggal Check-out</label>
-                          <input type="date" id="check-out" name="check_out" required>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label for="booking-name">Nama Lengkap</label>
-                      <input type="text" id="booking-name" name="name" required>
-                  </div>
-                  <div class="form-group">
-                      <label for="booking-email">Email</label>
-                      <input type="email" id="booking-email" name="email" required>
-                  </div>
-                   <div class="form-group">
-                      <label for="booking-phone">Nomor WhatsApp</label>
-                      <input type="tel" id="booking-phone" name="phone" required>
-                  </div>
-                  <button type="submit" class="button button-primary">Kirim Permintaan Booking</button>
-              </form>
-          </div>
-      </div>
-       <!-- Notifikasi Popup -->
+      
+      <!-- DIHAPUS: Modal Booking tidak diperlukan lagi -->
+      
+       <!-- Notifikasi Popup (Masih ada, tapi hanya untuk Modal Pesan) -->
       <div id="notification-popup" class="notification-popup">Pesan Anda telah terkirim!</div>
 
      <script src="script.js"></script> <!-- Muat skrip utama -->
+     
+     <!-- DIHAPUS: Logika JavaScript kustom untuk modal booking -->
      <script>
         // Membungkus semua kode dalam DOMContentLoaded
         document.addEventListener('DOMContentLoaded', () => {
@@ -408,86 +366,10 @@
                 });
             }
             
-            // --- Logika Modal Booking jika tombol .booking-button atau .booking-button-direct ditekan ---
-            const bookingModalCamp = document.getElementById('booking-modal');
-            const bookingModalCloseCamp = bookingModalCamp ? bookingModalCamp.querySelector('#booking-modal-close') : null;
-            const bookingFormCamp = document.getElementById('booking-form');
-            const bookingTypeSelectCamp = document.getElementById('booking-type');
-            const notificationPopupCamp = document.getElementById('notification-popup');
-            const allBookingButtons = document.querySelectorAll('.booking-button, .booking-button-direct'); // Gabungkan kedua jenis tombol
-
-            const openBookingModalDirect = (bookingType = '') => {
-                if (bookingModalCamp && bookingTypeSelectCamp) {
-                    bookingTypeSelectCamp.value = bookingType; 
-                    bookingModalCamp.classList.add('active');
-                }
-            };
-            const closeBookingModalDirect = () => {
-                if (bookingModalCamp && bookingFormCamp) {
-                    bookingModalCamp.classList.remove('active');
-                    bookingFormCamp.reset();
-                }
-            };
+            // --- DIHAPUS: Logika Modal Booking ---
+            // ... (Semua kode 'bookingModalCamp', 'bookingModalCloseCamp', 'bookingFormCamp', dll, dihapus) ...
             
-            // Tambahkan event listener ke SEMUA tombol booking di halaman ini
-            allBookingButtons.forEach(button => {
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const bookingType = button.getAttribute('data-type') || ''; // Ambil data-type jika ada
-                    openBookingModalDirect(bookingType); 
-                });
-            });
-            
-            if (bookingModalCloseCamp) {
-                bookingModalCloseCamp.addEventListener('click', closeBookingModalDirect);
-            }
-            if (bookingModalCamp) {
-                bookingModalCamp.addEventListener('click', (e) => {
-                    if (e.target === bookingModalCamp) {
-                        closeBookingModalDirect();
-                    }
-                });
-            }
-            // Logika submit form booking
-            if (bookingFormCamp && notificationPopupCamp) {
-                bookingFormCamp.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const formData = new FormData(bookingFormCamp);
-                    const data = Object.fromEntries(formData.entries());
-                    const backendUrl = 'https://hansstory7.pythonanywhere.com/booking'; 
-
-                    fetch(backendUrl, { 
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data),
-                    })
-                    .then(response => {
-                        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                        return response.json();
-                    })
-                    .then(result => {
-                        console.log('Success:', result);
-                        closeBookingModalDirect();
-                        notificationPopupCamp.textContent = 'Permintaan booking terkirim! Admin akan menghubungi Anda via WhatsApp.';
-                        notificationPopupCamp.style.backgroundColor = ''; 
-                        notificationPopupCamp.classList.add('show');
-                        setTimeout(() => {
-                            notificationPopupCamp.classList.remove('show');
-                        }, 5000); 
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        notificationPopupCamp.textContent = 'Gagal mengirim booking!';
-                        notificationPopupCamp.style.backgroundColor = 'red'; 
-                        notificationPopupCamp.classList.add('show');
-                        setTimeout(() => {
-                            notificationPopupCamp.classList.remove('show');
-                            notificationPopupCamp.style.backgroundColor = ''; 
-                        }, 4000);
-                    });
-            } // <-- Kurung kurawal penutup untuk if (bookingFormCamp...) ditambahkan di sini
         }); // <-- Kurung kurawal penutup untuk DOMContentLoaded
      </script>
 </body>
 </html>
-

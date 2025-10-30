@@ -7,6 +7,8 @@
     <title>Menu Warung Shelter - Thé Ciliwung</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script> 
 </head>
 <body>
     <!-- Header -->
@@ -16,59 +18,305 @@
                 <img src="logo-theciliwung.png" alt="Logo Thé Ciliwung" class="logo-img">
             </a>
             <nav class="main-nav">
-                <a href="index.html#tentang">Tentang Kami</a>
-                <a href="index.html#camping">Camping</a>
-                <a href="index.html#glamping">Glamping</a>
-                <a href="index.html#resto">Resto</a>
-                <a href="index.html#galeri">Galeri</a>
+                <a href="index.html#hero">Beranda</a>
+                <a href="tiket.html">Wisata</a> 
+                <a href="camp.html">Adventure Camp</a>
+                <a href="resto.html" class="active-link">Resto</a>
+                <a href="majalah.html">Majalah</a>
                 <a href="index.html#kontak">Kontak</a>
             </nav>
-            <a href="index.html#camping" class="button button-primary nav-button">Pesan Sekarang</a>
+            <a href="https://forms.office.com/r/UiJExHcDnX" target="_blank" class="button button-primary nav-button">Pesan Sekarang</a>
+            <button id="mobile-menu-button" class="mobile-menu-button">
+                <i data-feather="menu"></i>
+            </button>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+    <div id="mobile-menu" class="mobile-menu">
+        <button id="mobile-menu-close" class="mobile-menu-close">&times;</button>
+        <img src="logo-theciliwung.png" alt="Logo Thé Ciliwung" class="mobile-menu-logo">
+        <a href="index.html#hero">Beranda</a>
+        <a href="tiket.html">Tiket Wisata</a> 
+        <a href="camp.html">Adventure Camp</a>
+        <a href="resto.html">Resto</a> 
+        <a href="majalah.html">Majalah</a>
+        <a href="index.html#kontak">Kontak</a>
+    </div>
 
     <main class="menu-page-main">
         <div class="container">
             <h1 class="menu-title">Warung Shelter</h1>
             <div class="back-button-container">
-                <a href="index.html#resto" class="button button-secondary">Kembali ke Pilihan Resto</a>
+                <a href="resto.html" class="button button-secondary">Kembali ke Pilihan Resto</a>
             </div>
 
-            <!-- Menu Makanan -->
+            <!-- Menu Makanan (Dari PDF Hal 2) -->
             <div class="menu-category">
-                <h2>Makanan Ringan</h2>
+                <h2>Makanan</h2>
                 <div class="menu-item">
                     <div class="menu-item-details">
-                        <h4>Indomie Kuah/Goreng Spesial</h4>
-                        <p>Indomie dengan telur, sayuran, dan irisan cabai.</p>
+                        <h4>Chikuwa</h4>
+                    </div>
+                    <span class="menu-item-price">Rp 8.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Crab Stick</h4>
+                    </div>
+                    <span class="menu-item-price">Rp 8.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Fishroll</h4>
+                    </div>
+                    <span class="menu-item-price">Rp 8.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Sosis Sapi/Ayam</h4>
+                    </div>
+                    <span class="menu-item-price">Rp 8.000</span>
+                </div>
+                 <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Bakso Sapi/Ikan/Salmon</h4>
+                    </div>
+                    <span class="menu-item-price">Rp 8.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Tahu Seafood</h4>
+                    </div>
+                    <span class="menu-item-price">Rp 10.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Mini Pao</h4>
+                        <p>Mini Pao goreng, 1 porsi = 3 pcs</p>
+                    </div>
+                    <span class="menu-item-price">Rp 10.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Aneka Donat</h4>
+                        <p>Dengan glaze pilihan: coklat/keju/strawberry</p>
+                    </div>
+                    <span class="menu-item-price">Rp 15.000</span>
+                </div>
+                 <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Corndog</h4>
+                    </div>
+                    <span class="menu-item-price">Rp 15.000</span>
+                </div>
+                 <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Seblak</h4>
+                        <p>kerupuk, bakso ikan, bakso sapi, chikuwa, crab stick, sawi hijau</p>
+                    </div>
+                    <span class="menu-item-price">Rp 20.000</span>
+                </div>
+            </div>
+
+            <!-- Menu Tea Series -->
+            <div class="menu-category">
+                <h2>Tea Series</h2>
+                 <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Jasmine Tea</h4>
+                        <p>Dari daun teh pilihan yang dipadukan dengan bunga melati</p>
+                    </div>
+                    <span class="menu-item-price">Rp 10.000</span>
+                </div>
+                 <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Lemon Tea</h4>
+                        <p>Nikmatnya paduan rasa teh dan segarnya lemon melegakan dahaga</p>
+                    </div>
+                    <span class="menu-item-price">Rp 15.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Ginger Tea</h4>
+                        <p>Sebuah ramuan klasik untuk meningkatkan daya tahan tubuh</p>
+                    </div>
+                    <span class="menu-item-price">Rp 15.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Lychee Tea</h4>
+                        <p>Kesegaran teh pilihan dengan rasa manis dari buah leci</p>
                     </div>
                     <span class="menu-item-price">Rp 25.000</span>
                 </div>
                 <div class="menu-item">
                     <div class="menu-item-details">
-                        <h4>Roti Bakar Cokelat Keju</h4>
-                        <p>Roti bakar klasik dengan topping melimpah.</p>
+                        <h4>Strawberry Tea</h4>
+                        <p>Paduan buah strawberry dan teh yang membawa kesegaran</p>
                     </div>
-                    <span class="menu-item-price">Rp 30.000</span>
+                    <span class="menu-item-price">Rp 25.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Peach Tea</h4>
+                        <p>Rasa teh lokal ditambah dengan nikmatnya buah peach</p>
+                    </div>
+                    <span class="menu-item-price">Rp 25.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Mango Tea</h4>
+                        <p>Punten aja jawabannya mangga, masa teh engga</p>
+                    </div>
+                    <span class="menu-item-price">Rp 25.000</span>
                 </div>
             </div>
 
-            <!-- Menu Minuman -->
+            <!-- Menu Milk Series -->
             <div class="menu-category">
-                <h2>Kopi & Teh</h2>
+                <h2>Milk Series</h2>
                  <div class="menu-item">
                     <div class="menu-item-details">
-                        <h4>Kopi Tubruk Khas Ciliwung</h4>
-                        <p>Kopi hitam pekat dengan biji kopi lokal pilihan.</p>
+                        <h4>Milk Tea</h4>
+                        <p>Ini teh bukan sembarang teh, ini teh susu</p>
+                    </div>
+                    <span class="menu-item-price">Rp 15.000</span>
+                </div>
+                 <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Rose Milk Tea</h4>
+                        <p>Sensasi teh dengan aroma harum dari bunga mawar</p>
+                    </div>
+                    <span class="menu-item-price">Rp 20.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Hazelnut Choco Milk Tea</h4>
+                        <p>Kapan lagi sih bisa nikmatin susu ditambah coklat dan hazelnut</p>
+                    </div>
+                    <span class="menu-item-price">Rp 25.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Blueberry Milk Tea</h4>
+                        <p>Paduan sempurna dari susu dan rasa bluberi</p>
+                    </div>
+                    <span class="menu-item-price">Rp 25.000</span>
+                </div>
+            </div>
+
+            <!-- Menu Flavor Series -->
+            <div class="menu-category">
+                <h2>Flavor Series</h2>
+                 <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Thai Tea</h4>
+                        <p>Belum lengkap kalau belum ada menu teh khas Thailand ini</p>
                     </div>
                     <span class="menu-item-price">Rp 20.000</span>
                 </div>
                  <div class="menu-item">
                     <div class="menu-item-details">
-                        <h4>Teh Manis Hangat</h4>
-                        <p>Teh lokal disajikan hangat dengan gula.</p>
+                        <h4>Red Velvet</h4>
+                        <p>Merahnya minuman ini tak semerah lipstikmu</p>
+                    </div>
+                    <span class="menu-item-price">Rp 20.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Taro Latte</h4>
+                        <p>Rasa ubi ungu dicampur dengan susu ini pas banget</p>
+                    </div>
+                    <span class="menu-item-price">Rp 20.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Hot Choco</h4>
+                        <p>Siapa yang bisa menghangatkan selain cokelat panas</p>
+                    </div>
+                    <span class="menu-item-price">Rp 20.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Lemon Squash</h4>
+                        <p>Segarnya lemon dicampur dengan air soda</p>
+                    </div>
+                    <span class="menu-item-price">Rp 20.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Avocado Caramel</h4>
+                        <p>Alpukat yang dicampur dengan manisnya karamel</p>
+                    </div>
+                    <span class="menu-item-price">Rp 25.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Avocado Latte</h4>
+                        <p>Sensasi susu yang creamy ditambah dengan alpukat</p>
+                    </div>
+                    <span class="menu-item-price">Rp 25.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Cookies and Cream</h4>
+                        <p>Salah satu menu favorit sepanjang masa</p>
+                    </div>
+                    <span class="menu-item-price">Rp 25.000</span>
+                </div>
+            </div>
+
+            <!-- Menu Coffee Series -->
+            <div class="menu-category">
+                <h2>Coffee Series</h2>
+                 <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Americano</h4>
+                        <p>Menu kopi yang sudah familiar di kalangan anak muda</p>
                     </div>
                     <span class="menu-item-price">Rp 15.000</span>
+                </div>
+                 <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Kopi Warung Nongkrong</h4>
+                        <p>Racikan kopi spesial dari warung shelter THE CILIWUNG</p>
+                    </div>
+                    <span class="menu-item-price">Rp 20.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Avocado Coffee</h4>
+                        <p>Es kopi alpukat yang populer banget</p>
+                    </div>
+                    <span class="menu-item-price">Rp 25.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Es Kopi Susu Gula Aren</h4>
+                        <p>Gak ada yang bisa ngalahin manisnya gula aren selain kamu</p>
+                    </div>
+                    <span class="menu-item-price">Rp 25.000</span>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Capuccino</h4>
+                        <p>Sebuah sajian klasik dari campuran kopi dan susu</p>
+                    </div>
+                    <span class="menu-item-price">Rp 25.000</span>
+                </div>
+            </div>
+
+            <!-- Menu Matcha -->
+            <div class="menu-category">
+                <h2>Matcha Menu</h2>
+                 <div class="menu-item">
+                    <div class="menu-item-details">
+                        <h4>Matcha Latte</h4>
+                        <p>Matcha sih ini enak? Ini mah enak banget. Ciuss.</p>
+                    </div>
+                    <span class="menu-item-price">Rp 25.000</span>
                 </div>
             </div>
         </div>
@@ -85,17 +333,28 @@
                 <div class="footer-col">
                     <h3>Hubungi Kami</h3>
                     <div class="contact-links">
-                        <a href="https://ig.me/m/theciliwung" target="_blank" class="contact-link-item"><span>Instagram</span></a>
-                        <a href="https://wa.me/6287737040708" target="_blank" class="contact-link-item"><span>WhatsApp Admin 1</span></a>
-                        <a href="https://wa.me/6281919070705" target="_blank" class="contact-link-item"><span>WhatsApp Admin 2</span></a>
+                        <a href="https://wa.me/6287737040708" target="_blank" class="contact-link-item">
+                           <i data-feather="message-circle"></i>
+                           <span>WhatsApp Admin 1</span>
+                        </a>
+                        <a href="https://wa.me/62819190705" target="_blank" class="contact-link-item">
+                           <i data-feather="message-circle"></i>
+                           <span>WhatsApp Admin 2</span>
+                        </a>
                     </div>
                 </div>
                 <div class="footer-col">
                     <h3>Ikuti Kami</h3>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/theciliwung" target="_blank" aria-label="Instagram"></a>
-                        <a href="https://www.tiktok.com/@theciliwung" target="_blank" aria-label="TikTok"></a>
-                        <a href="https://www.threads.net/@theciliwung" target="_blank" aria-label="Threads"></a>
+                        <a href="https://www.instagram.com/theciliwung" target="_blank" class="instagram-icon" aria-label="Instagram">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@theciliwung" target="_blank" class="tiktok-icon" aria-label="TikTok">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">  <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/></svg>
+                        </a>
+                        <a href="https://www.threads.net/@theciliwung" target="_blank" class="threads-icon" aria-label="Threads">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-threads" viewBox="0 0 16 16">  <path d="M6.321 6.016c-.27-.18-1.166-.802-1.166-.802.756-1.081 1.753-1.502 3.132-1.502.975 0 1.803.327 2.394.948s.928 1.509 1.005 2.644q.492.207.905.484c1.109.745 1.719 1.86 1.719 3.137 0 2.716-2.226 5.075-6.256 5.075C4.594 16 1 13.987 1 7.994 1 2.034 4.482 0 8.044 0 9.69 0 13.55.243 15 5.036l-1.36.353C12.516 1.974 10.163 1.43 8.006 1.43c-3.565 0-5.582 2.171-5.582 6.79 0 4.143 2.254 6.343 5.63 6.343 2.777 0 4.847-1.443 4.847-3.556 0-1.438-1.208-2.127-1.27-2.127-.236 1.234-.868 3.31-3.644 3.31-1.618 0-3.013-1.118-3.013-2.582 0-2.09 1.984-2.847 3.55-2.847.586 0 1.294.04 1.663.114 0-.637-.54-1.728-1.9-1.728-1.25 0-1.566.405-1.967.868ZM8.716 8.19c-2.04 0-2.304.87-2.304 1.416 0 .878 1.043 1.168 1.6 1.168 1.02 0 2.067-.282 2.232-2.423a6.2 6.2 0 0 0-1.528-.161"/></svg>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -107,7 +366,7 @@
 
     <!-- Tombol Pesan Mengambang -->
     <div id="floating-message-button" class="floating-message-button" aria-label="Kirim Pesan">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        <i data-feather="message-square"></i>
     </div>
 
     <!-- Modal Pesan -->
@@ -137,5 +396,38 @@
     <div id="notification-popup" class="notification-popup">Pesan Anda telah terkirim!</div>
 
     <script src="script.js"></script>
+    <!-- Script inline untuk menu mobile -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            feather.replace(); // Inisialisasi ikon
+
+            // Logika Menu Mobile
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+
+            const openMobileMenu = () => {
+                if(mobileMenu) mobileMenu.classList.add('active');
+                if(mobileMenuOverlay) mobileMenuOverlay.classList.add('active');
+            };
+
+            const closeMobileMenu = () => {
+                if(mobileMenu) mobileMenu.classList.remove('active');
+                if(mobileMenuOverlay) mobileMenuOverlay.classList.remove('active');
+            };
+
+            if (mobileMenuButton && mobileMenu && mobileMenuClose && mobileMenuOverlay) {
+                mobileMenuButton.addEventListener('click', openMobileMenu);
+                mobileMenuClose.addEventListener('click', closeMobileMenu);
+                mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', closeMobileMenu);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
+

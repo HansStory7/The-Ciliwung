@@ -1495,6 +1495,33 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     stroke: var(--color-tea-green); /* Warna ikon aktif */
 }
 
+/* === [BARU] TOMBOL MUSIK === */
+#music-toggle-button {
+    position: fixed;
+    bottom: calc(var(--bottom-nav-height) + 1rem); /* Posisikan di atas nav bawah */
+    left: 1.5rem; /* Posisikan di kiri */
+    background-color: var(--color-white);
+    color: var(--color-tea-green);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 90;
+    transition: transform 0.3s ease, background-color 0.3s, color 0.3s;
+    border: 2px solid var(--color-tea-green);
+}
+#music-toggle-button.playing {
+    background-color: var(--color-tea-green);
+    color: var(--color-white);
+}
+#music-toggle-button:hover {
+    transform: scale(1.1);
+}
+
 /* === RESPONSIVE MEDIA QUERIES === */
 @media (max-width: 767px) { /* Hanya tampilkan nav bawah di mobile */
     .bottom-nav {
@@ -1581,6 +1608,13 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
      .floating-message-button { /* Kembalikan posisi tombol pesan */
         bottom: 2rem;
         right: 2rem;
+        width: 60px;
+        height: 60px;
+    }
+    /* [BARU] Penyesuaian tombol musik di desktop */
+    #music-toggle-button {
+        bottom: 2rem;
+        left: 2rem;
         width: 60px;
         height: 60px;
     }

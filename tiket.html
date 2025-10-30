@@ -25,7 +25,8 @@
                  <a href="majalah.html">Majalah</a> <!-- Diubah ke majalah.html -->
                  <a href="index.html#kontak">Kontak</a>
             </nav>
-            <a href="#" class="button button-primary nav-button booking-button">Pesan Sekarang</a> <!-- Menggunakan class booking-button -->
+            <!-- DIUBAH: Mengarah ke MS Forms -->
+            <a href="https://forms.office.com/r/UiJExHcDnX" target="_blank" class="button button-primary nav-button">Pesan Sekarang</a>
              <button id="mobile-menu-button" class="mobile-menu-button">
                  <i data-feather="menu"></i>
             </button>
@@ -61,11 +62,12 @@
                              <div class="tiket-detail-price">Rp 25.000 / orang</div>
                          </div>
                      </div>
-                      <!-- Parkir Kendaraan -->
+                      <!-- Tiket Masuk Kendaraan -->
                      <div class="tiket-detail-item animate-on-scroll">
                          <img src="https://placehold.co/600x400/D4B996/483434?text=Parkir" alt="Ilustrasi area parkir kendaraan">
                          <div class="tiket-detail-content">
-                             <h3>Parkir Kendaraan</h3>
+                             <!-- DIUBAH: Teks di sini -->
+                             <h3>Tiket Masuk Kendaraan</h3>
                              <p>Biaya parkir untuk memastikan kendaraan Anda aman selama kunjungan. Berlaku satu kali masuk.</p>
                              <ul class="tiket-detail-price-list">
                                  <li>Motor: Rp 10.000</li>
@@ -76,7 +78,7 @@
                      </div>
                       <!-- Wara Wiri -->
                      <div class="tiket-detail-item animate-on-scroll">
-                          <img src="https://placehold.co/600x400/6B4F4B/FFFFFF?text=Wara+Wiri" alt="Ilustrasi kendaraan Wara Wiri">
+                          <img src="httpsa://placehold.co/600x400/6B4F4B/FFFFFF?text=Wara+Wiri" alt="Ilustrasi kendaraan Wara Wiri">
                           <div class="tiket-detail-content">
                              <h3>Wara Wiri</h3>
                              <p>Kendaraan shuttle khusus untuk berkeliling area perkebunan dengan nyaman. Cocok untuk Anda yang ingin menikmati pemandangan tanpa lelah berjalan.</p>
@@ -85,7 +87,7 @@
                      </div>
                       <!-- Mobil Komodo -->
                      <div class="tiket-detail-item animate-on-scroll">
-                          <img src="https://placehold.co/600x400/FDFBF5/6B4F4B?text=Mobil+Komodo" alt="Ilustrasi mobil Komodo off-road">
+                          <img src="httpsa://placehold.co/600x400/FDFBF5/6B4F4B?text=Mobil+Komodo" alt="Ilustrasi mobil Komodo off-road">
                           <div class="tiket-detail-content">
                              <h3>Sewa Mobil Komodo</h3>
                              <p>Jelajahi medan perkebunan yang menantang dengan mobil Komodo yang tangguh. Pengalaman seru untuk grup kecil.</p>
@@ -98,7 +100,7 @@
                      </div>
                        <!-- ATV -->
                      <div class="tiket-detail-item animate-on-scroll">
-                          <img src="https://placehold.co/600x400/483434/FFFFFF?text=ATV" alt="Ilustrasi ATV">
+                          <img src="httpsa://placehold.co/600x400/483434/FFFFFF?text=ATV" alt="Ilustrasi ATV">
                           <div class="tiket-detail-content">
                              <h3>Sewa Mobil ATV</h3>
                              <p>Rasakan sensasi petualangan ATV melintasi jalur khusus di tengah kebun teh. Adrenalin dan pemandangan indah dalam satu paket.</p>
@@ -188,54 +190,8 @@
          </a>
      </nav>
     
-    <!-- Modal Booking (Disertakan untuk tombol 'Pesan Sekarang' di header) -->
-    <div id="booking-modal" class="message-modal">
-        <div class="message-modal-content">
-            <span id="booking-modal-close" class="message-modal-close">&times;</span>
-            <h2 class="form-title">Formulir Pemesanan</h2>
-            <form id="booking-form" class="message-form">
-                 <div class="form-group">
-                    <label for="booking-type">Pilihan Akomodasi</label>
-                    <select id="booking-type" name="type" required>
-                        <option value="">-- Pilih Akomodasi --</option>
-                        <option value="Tenda 2 Orang">Camping: Tenda 2 Orang</option>
-                        <option value="Tenda 4 Orang">Camping: Tenda 4 Orang</option>
-                        <option value="Tenda 6 Orang">Camping: Tenda 6 Orang</option>
-                        <option value="Paket Camping Group">Camping: Paket Group</option>
-                        <option value="Extra Bed Camping">Camping: Extra Bed</option>
-                        <option value="Glamping 360° View">Glamping: 360° View</option>
-                        <option value="Rumah Sarang Manyar">Glamping: Rumah Sarang Manyar</option>
-                        <option value="Glamping Connecting">Glamping: Connecting</option>
-                        <option value="Manyar Connecting">Glamping: Manyar Connecting</option>
-                        <option value="Extra Bed Glamping">Glamping: Extra Bed</option>
-                    </select>
-                </div>
-                <div class="form-group date-group">
-                    <div>
-                        <label for="check-in">Tanggal Check-in</label>
-                        <input type="date" id="check-in" name="check_in" required>
-                    </div>
-                    <div>
-                        <label for="check-out">Tanggal Check-out</label>
-                        <input type="date" id="check-out" name="check_out" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="booking-name">Nama Lengkap</label>
-                    <input type="text" id="booking-name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="booking-email">Email</label>
-                    <input type="email" id="booking-email" name="email" required>
-                </div>
-                 <div class="form-group">
-                    <label for="booking-phone">Nomor WhatsApp</label>
-                    <input type="tel" id="booking-phone" name="phone" required>
-                </div>
-                <button type="submit" class="button button-primary">Kirim Permintaan Booking</button>
-            </form>
-        </div>
-    </div>
+    <!-- Modal Booking (DIHAPUS KARENA PINDAH KE MS FORMS) -->
+    <!-- <div id="booking-modal" ... </div> -->
 
     <!-- Notifikasi Popup -->
     <div id="notification-popup" class="notification-popup">Pesan Anda telah terkirim!</div>
@@ -289,4 +245,3 @@
      </script>
 </body>
 </html>
-
